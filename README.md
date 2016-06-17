@@ -11,3 +11,5 @@
 4.[AlertView设置为不透明的](https://github.com/zyfoolboy/problems-of-work/wiki/iOS-AlertView%E8%83%8C%E6%99%AF%E8%AE%BE%E7%BD%AE%E4%B8%BA%E4%B8%8D%E9%80%8F%E6%98%8E)
 
 5.[UIButton设置title和image](https://github.com/zyfoolboy/ButtonTitle/blob/master/README.md)
+
+6.[TableView点击空白收起键盘](https://github.com/zyfoolboy/problems-of-work/wiki/TableView%E7%82%B9%E5%87%BB%E7%A9%BA%E7%99%BD%E6%94%B6%E8%B5%B7%E9%94%AE%E7%9B%98)
