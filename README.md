@@ -13,3 +13,5 @@
 5.[UIButton设置title和image](https://github.com/zyfoolboy/ButtonTitle/blob/master/README.md)
 
 6.[TableView点击空白收起键盘](https://github.com/zyfoolboy/problems-of-work/wiki/TableView%E7%82%B9%E5%87%BB%E7%A9%BA%E7%99%BD%E6%94%B6%E8%B5%B7%E9%94%AE%E7%9B%98)
+
+7.[设置BackBarButtonItem为指定图片](https://github.com/zyfoolboy/BackBarButtonItem/blob/master/README.md)
