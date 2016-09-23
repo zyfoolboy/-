@@ -21,3 +21,5 @@
 10.[设置 tableView 第一行为默认选中状态时 cell 的 selectedBackgroundView 显示不正确](https://github.com/zyfoolboy/problems-of-work/wiki/%E8%AE%BE%E7%BD%AE-tableView-%E7%AC%AC%E4%B8%80%E8%A1%8C%E4%B8%BA%E9%BB%98%E8%AE%A4%E9%80%89%E4%B8%AD%E7%8A%B6%E6%80%81%E6%97%B6-cell-%E7%9A%84-selectedBackgroundView-%E6%98%BE%E7%A4%BA%E4%B8%8D%E6%AD%A3%E7%A1%AE)
 
 11.[在 iOS 中使用 MQTT 协议](https://github.com/zyfoolboy/MQTTDemo/blob/master/README.md)
+
+12.[给 AFNetworking 请求头添加 Authorization](https://github.com/zyfoolboy/problems-of-work/wiki/%E7%BB%99-AFNetworking-%E8%AF%B7%E6%B1%82%E5%A4%B4%E6%B7%BB%E5%8A%A0-Authorization)
