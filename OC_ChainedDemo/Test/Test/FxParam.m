@@ -12,8 +12,7 @@
 
 + (FxParam *)create {
     FxParam *param = [FxParam new];
-    param.resault = [FxResault new];
-    param.resault.sort = [NSMutableArray array];
+    param.sort = [NSMutableArray array];
     return param;
 }
 
@@ -22,14 +21,14 @@
         FxPage *page = [FxPage new];
         page.pageNo = pageNo;
         page.pageSize = pageSize;
-        self.resault.page = page;
+        self.page = page;
         return self;
     };
 }
 
 - (FxParam *(^)(BOOL))addUnion {
     return ^(BOOL unio) {
-        self.resault.unio = unio;
+        self.unio = unio;
         return self;
     };
 }
@@ -39,16 +38,12 @@
         va_list _arguments;
         va_start(_arguments, first);
         for (FxSort *key = first; key != nil; key = (__bridge FxSort *)va_arg(_arguments, void *)) {
-            [self.resault.sort addObject:key];
+            [self.sort addObject:key];
         }
         va_end(_arguments);
         return self;
     };
 }
-
-@end
-
-@implementation FxResault
 
 @end
 

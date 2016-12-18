@@ -31,7 +31,8 @@
 
 @end
 
-@interface FxResault : NSObject
+
+@interface FxParam : NSObject
 
 @property (nonatomic, strong) FxPage *page;
 @property (nonatomic, assign) BOOL unio;
@@ -39,11 +40,6 @@
 @property (nonatomic, strong) FxTerm *where;
 @property (nonatomic, strong) NSMutableArray<FxSort *> *sort;
 
-@end
-
-@interface FxParam : NSObject
-
-@property (nonatomic, strong) FxResault *resault;
 
 + (FxParam *)create;
 - (FxParam *(^)(NSInteger ,NSInteger))addPage;
