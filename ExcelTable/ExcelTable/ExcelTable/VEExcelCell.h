@@ -15,4 +15,7 @@
 @property (nonatomic, strong) NSMutableArray<UILabel *> *labels;
 @property (nonatomic, copy) NSArray *contents;
 
+
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier count:(NSInteger)count;
+
 @end
