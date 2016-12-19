@@ -36,7 +36,7 @@ static CGFloat const kPadding = .5;
 }
 
 - (void)setupSubviews {
-    _leftTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.jk_width / 4, self.jk_height) style:UITableViewStylePlain];
+    _leftTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, (self.jk_width / 4) + kPadding, self.jk_height) style:UITableViewStylePlain];
     _leftTableView.tableFooterView = [UIView new];
     _leftTableView.delegate = self;
     _leftTableView.dataSource = self;
@@ -105,7 +105,7 @@ static CGFloat const kPadding = .5;
         [label mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(view.mas_top).offset(kPadding);
             make.left.equalTo(view.mas_left).offset(kPadding);
-            make.right.equalTo(view.mas_right).offset(-kPadding);
+            make.right.equalTo(view.mas_right).offset(-1);
             make.bottom.equalTo(view.mas_bottom).offset(-kPadding);
         }];
         return view;
