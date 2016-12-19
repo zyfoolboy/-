@@ -15,6 +15,9 @@
 		6D9E79E61E069F3900E41BE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D9E79E41E069F3900E41BE3 /* LaunchScreen.storyboard */; };
 		6D9E79F11E069F3900E41BE3 /* ExcelTableTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9E79F01E069F3900E41BE3 /* ExcelTableTests.m */; };
 		6D9E79FC1E069F3900E41BE3 /* ExcelTableUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9E79FB1E069F3900E41BE3 /* ExcelTableUITests.m */; };
+		E75FDAD71E07E72F00A59E0E /* VEExcelTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E75FDAD61E07E72F00A59E0E /* VEExcelTableView.m */; };
+		E75FDADC1E07E77C00A59E0E /* VEGridHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E75FDAD91E07E77C00A59E0E /* VEGridHeaderView.m */; };
+		E75FDADD1E07E77C00A59E0E /* VEStaticTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E75FDADB1E07E77C00A59E0E /* VEStaticTableView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,12 @@
 		6D9E79F71E069F3900E41BE3 /* ExcelTableUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExcelTableUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D9E79FB1E069F3900E41BE3 /* ExcelTableUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExcelTableUITests.m; sourceTree = "<group>"; };
 		6D9E79FD1E069F3900E41BE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E75FDAD51E07E72F00A59E0E /* VEExcelTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VEExcelTableView.h; sourceTree = "<group>"; };
+		E75FDAD61E07E72F00A59E0E /* VEExcelTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VEExcelTableView.m; sourceTree = "<group>"; };
+		E75FDAD81E07E77C00A59E0E /* VEGridHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VEGridHeaderView.h; sourceTree = "<group>"; };
+		E75FDAD91E07E77C00A59E0E /* VEGridHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VEGridHeaderView.m; sourceTree = "<group>"; };
+		E75FDADA1E07E77C00A59E0E /* VEStaticTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VEStaticTableView.h; sourceTree = "<group>"; };
+		E75FDADB1E07E77C00A59E0E /* VEStaticTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VEStaticTableView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +115,12 @@
 				6D9E79DC1E069F3900E41BE3 /* ViewController.h */,
 				6D9E79DD1E069F3900E41BE3 /* ViewController.m */,
 				6D9E79DF1E069F3900E41BE3 /* Main.storyboard */,
+				E75FDAD81E07E77C00A59E0E /* VEGridHeaderView.h */,
+				E75FDAD91E07E77C00A59E0E /* VEGridHeaderView.m */,
+				E75FDADA1E07E77C00A59E0E /* VEStaticTableView.h */,
+				E75FDADB1E07E77C00A59E0E /* VEStaticTableView.m */,
+				E75FDAD51E07E72F00A59E0E /* VEExcelTableView.h */,
+				E75FDAD61E07E72F00A59E0E /* VEExcelTableView.m */,
 				6D9E79E21E069F3900E41BE3 /* Assets.xcassets */,
 				6D9E79E41E069F3900E41BE3 /* LaunchScreen.storyboard */,
 				6D9E79E71E069F3900E41BE3 /* Info.plist */,
@@ -274,6 +289,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D9E79DE1E069F3900E41BE3 /* ViewController.m in Sources */,
+				E75FDAD71E07E72F00A59E0E /* VEExcelTableView.m in Sources */,
+				E75FDADD1E07E77C00A59E0E /* VEStaticTableView.m in Sources */,
+				E75FDADC1E07E77C00A59E0E /* VEGridHeaderView.m in Sources */,
 				6D9E79DB1E069F3900E41BE3 /* AppDelegate.m in Sources */,
 				6D9E79D81E069F3900E41BE3 /* main.m in Sources */,
 			);
@@ -507,6 +525,7 @@
 				6D9E7A021E069F3900E41BE3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6D9E7A031E069F3900E41BE3 /* Build configuration list for PBXNativeTarget "ExcelTableTests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +534,7 @@
 				6D9E7A051E069F3900E41BE3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6D9E7A061E069F3900E41BE3 /* Build configuration list for PBXNativeTarget "ExcelTableUITests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +543,7 @@
 				6D9E7A081E069F3900E41BE3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
