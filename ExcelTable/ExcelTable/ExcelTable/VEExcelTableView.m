@@ -52,7 +52,6 @@ static CGFloat const kPadding = .5;
     [self addSubview:_rightView];
     _rightTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.jk_width / 4 * _rightTitles.count, self.jk_height) style:UITableViewStylePlain];
     _rightTableView.tableFooterView = [UIView new];
-    //[_rightTableView registerClass:[VEExcelCell class] forCellReuseIdentifier:rightCellIdentifyer];
     _rightTableView.delegate = self;
     _rightTableView.dataSource = self;
     [_rightTableView setSeparatorInset:UIEdgeInsetsZero];
@@ -121,10 +120,9 @@ static CGFloat const kPadding = .5;
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if (scrollView == self.leftTableView) {
-        //NSLog(@"%@",  scrollView.contentOffset);
         self.rightTableView.contentOffset = scrollView.contentOffset;
     } else {
-        self.leftTableView.contentOffset = CGPointMake(0, scrollView.contentOffset.y);//scrollView.contentOffset;
+        self.leftTableView.contentOffset = CGPointMake(0, scrollView.contentOffset.y);
     }
 }
 
