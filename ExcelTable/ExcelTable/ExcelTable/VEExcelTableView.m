@@ -12,6 +12,7 @@
 
 static NSString * const cellIdentifyer = @"Cell";
 static NSString * const rightCellIdentifyer = @"rightCell";
+static CGFloat const kPadding = .5;
 
 @interface VEExcelTableView () <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate>
 
@@ -43,7 +44,7 @@ static NSString * const rightCellIdentifyer = @"rightCell";
     [_leftTableView setLayoutMargins:UIEdgeInsetsZero];
     [_leftTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellIdentifyer];
     [self addSubview:_leftTableView];
-    _rightView = [[UIScrollView alloc] initWithFrame:CGRectMake(self.jk_width / 4, 0, (self.jk_width / 4 * 3) + .5, self.jk_height)];
+    _rightView = [[UIScrollView alloc] initWithFrame:CGRectMake(self.jk_width / 4, 0, (self.jk_width / 4 * 3) + kPadding, self.jk_height)];
     _rightView.contentSize = CGSizeMake(self.jk_width / 4 * _rightTitles.count, self.jk_height);
     _rightView.delegate = self;
     _rightView.showsHorizontalScrollIndicator = NO;
@@ -92,13 +93,22 @@ static NSString * const rightCellIdentifyer = @"rightCell";
         
         return headerView;
     } else {
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.jk_width, 20)];
+        view.backgroundColor = [UIColor lightGrayColor];
         UILabel *label = [[UILabel alloc] init];
         label.backgroundColor = [UIColor whiteColor];
         label.textColor = [UIColor greenColor];
         label.font = [UIFont systemFontOfSize:13];
         label.text = @"哈哈哈哈";
         label.textAlignment = NSTextAlignmentCenter;
-        return label;
+        [view addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(view.mas_top).offset(kPadding);
+            make.left.equalTo(view.mas_left).offset(kPadding);
+            make.right.equalTo(view.mas_right).offset(-kPadding);
+            make.bottom.equalTo(view.mas_bottom).offset(-kPadding);
+        }];
+        return view;
     }
     
 }
