@@ -15,6 +15,8 @@
 		6D9E79E61E069F3900E41BE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D9E79E41E069F3900E41BE3 /* LaunchScreen.storyboard */; };
 		6D9E79F11E069F3900E41BE3 /* ExcelTableTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9E79F01E069F3900E41BE3 /* ExcelTableTests.m */; };
 		6D9E79FC1E069F3900E41BE3 /* ExcelTableUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9E79FB1E069F3900E41BE3 /* ExcelTableUITests.m */; };
+		E71C7A761E07B45B00871338 /* VEGridHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E71C7A751E07B45B00871338 /* VEGridHeaderView.m */; };
+		E71C7A791E07B47800871338 /* VEStaticTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E71C7A781E07B47800871338 /* VEStaticTableView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,10 @@
 		6D9E79F71E069F3900E41BE3 /* ExcelTableUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExcelTableUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D9E79FB1E069F3900E41BE3 /* ExcelTableUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExcelTableUITests.m; sourceTree = "<group>"; };
 		6D9E79FD1E069F3900E41BE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E71C7A741E07B45B00871338 /* VEGridHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VEGridHeaderView.h; sourceTree = "<group>"; };
+		E71C7A751E07B45B00871338 /* VEGridHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VEGridHeaderView.m; sourceTree = "<group>"; };
+		E71C7A771E07B47800871338 /* VEStaticTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VEStaticTableView.h; sourceTree = "<group>"; };
+		E71C7A781E07B47800871338 /* VEStaticTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VEStaticTableView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +112,10 @@
 				6D9E79DC1E069F3900E41BE3 /* ViewController.h */,
 				6D9E79DD1E069F3900E41BE3 /* ViewController.m */,
 				6D9E79DF1E069F3900E41BE3 /* Main.storyboard */,
+				E71C7A741E07B45B00871338 /* VEGridHeaderView.h */,
+				E71C7A751E07B45B00871338 /* VEGridHeaderView.m */,
+				E71C7A771E07B47800871338 /* VEStaticTableView.h */,
+				E71C7A781E07B47800871338 /* VEStaticTableView.m */,
 				6D9E79E21E069F3900E41BE3 /* Assets.xcassets */,
 				6D9E79E41E069F3900E41BE3 /* LaunchScreen.storyboard */,
 				6D9E79E71E069F3900E41BE3 /* Info.plist */,
@@ -273,8 +283,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E71C7A791E07B47800871338 /* VEStaticTableView.m in Sources */,
 				6D9E79DE1E069F3900E41BE3 /* ViewController.m in Sources */,
 				6D9E79DB1E069F3900E41BE3 /* AppDelegate.m in Sources */,
+				E71C7A761E07B45B00871338 /* VEGridHeaderView.m in Sources */,
 				6D9E79D81E069F3900E41BE3 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -507,6 +519,7 @@
 				6D9E7A021E069F3900E41BE3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6D9E7A031E069F3900E41BE3 /* Build configuration list for PBXNativeTarget "ExcelTableTests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +528,7 @@
 				6D9E7A051E069F3900E41BE3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6D9E7A061E069F3900E41BE3 /* Build configuration list for PBXNativeTarget "ExcelTableUITests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +537,7 @@
 				6D9E7A081E069F3900E41BE3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
