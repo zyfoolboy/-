@@ -1,0 +1,1 @@
+../../../JKCategories/JKCategories/UIKit/UIApplication/UIApplication+JKPermissions.h

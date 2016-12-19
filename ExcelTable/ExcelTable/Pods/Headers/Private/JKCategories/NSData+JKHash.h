@@ -1,0 +1,1 @@
+../../../JKCategories/JKCategories/Foundation/NSData/NSData+JKHash.h

@@ -1,0 +1,15 @@
+PODS:
+  - JKCategories (1.4)
+  - Masonry (1.0.1)
+
+DEPENDENCIES:
+  - JKCategories
+  - Masonry
+
+SPEC CHECKSUMS:
+  JKCategories: 7575c5e39a54e664c44969ee2fab36d75a9c1d17
+  Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
+
+PODFILE CHECKSUM: 5d6b7d3a6e940b37599e57eaa36c0d3a2cb72751
+
+COCOAPODS: 1.0.1

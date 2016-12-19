@@ -1,0 +1,1 @@
+../../../JKCategories/JKCategories/CoreData/NSManagedObject/NSManagedObject+JKExtensions.h

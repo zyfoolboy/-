@@ -1,0 +1,1 @@
+../../../JKCategories/JKCategories/Foundation/NSString/NSString+JKMIME.h

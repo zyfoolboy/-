@@ -1,0 +1,1 @@
+../../../JKCategories/JKCategories/Foundation/NSObject/NSObject+JKAppInfo.h

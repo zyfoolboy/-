@@ -1,0 +1,1 @@
+../../../JKCategories/JKCategories/Foundation/NSURL/NSURL+JKQueryDictionary.h
