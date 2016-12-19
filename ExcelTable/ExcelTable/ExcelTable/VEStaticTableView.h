@@ -9,11 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "VEGridHeaderView.h"
 
-@interface VEStaticTableView : UIView <UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, strong) VEGridHeaderView *headerView;
-@property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, copy) NSArray *headerTitles;
+@interface VEStaticTableView : UIView 
+
 @property (nonatomic, strong) NSMutableArray *contentArray;
 
 - (instancetype)initWithFrame:(CGRect)frame titles:(NSArray *)titles;

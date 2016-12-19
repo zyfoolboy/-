@@ -35,13 +35,13 @@
     for (int i = 0; i < _titles.count; i++) {
         if (i == 0) {
             [_labels[i] mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(self.mas_left).offset(.5);
+                make.left.equalTo(self.mas_left).offset(1);
                 make.top.equalTo(self.mas_top).offset(.5);
                 make.bottom.equalTo(self.mas_bottom).offset(-.5);
                 make.right.equalTo(_labels[i + 1].mas_left).offset(-.5);
                 make.width.equalTo(_labels[i + 1]);
             }];
-        } else if (i == 3) {
+        } else if (i == _titles.count - 1) {
             [_labels[i] mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.equalTo(_labels[i - 1].mas_right).offset(.5);
                 make.top.equalTo(self.mas_top).offset(.5);

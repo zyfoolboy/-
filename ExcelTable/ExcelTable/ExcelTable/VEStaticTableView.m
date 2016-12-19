@@ -11,6 +11,14 @@
 
 static NSString * const cellIdentifyer = @"Cell";
 
+@interface VEStaticTableView () <UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic, strong) VEGridHeaderView *headerView;
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, copy) NSArray *headerTitles;
+
+@end
+
 @implementation VEStaticTableView
 
 - (instancetype)initWithFrame:(CGRect)frame titles:(NSArray *)titles {
