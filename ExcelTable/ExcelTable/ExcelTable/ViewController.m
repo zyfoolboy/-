@@ -7,18 +7,14 @@
 //
 
 #import "ViewController.h"
+#import "VEExcelTableView.h"
 
-#define Width [UIScreen mainScreen].bounds.size.width - 10
-#define Height [UIScreen mainScreen].bounds.size.height - 5
-
-static CGFloat const kEdgeDistance = 5;
-
+#define Width [UIScreen mainScreen].bounds.size.width - 30
+#define Height [UIScreen mainScreen].bounds.size.height - 20
 
 @interface ViewController ()
 
-@property (nonatomic, strong) UITableView *leftTableView;
-@property (nonatomic, strong) UITableView *rightTableView;
-@property (nonatomic, strong) UIScrollView *rightScrollView;
+@property (nonatomic, strong) VEExcelTableView *excelTableView;
 
 @end
 
@@ -27,39 +23,13 @@ static CGFloat const kEdgeDistance = 5;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIView *excelView = [[UIView alloc] initWithFrame:CGRectMake(5, 5, Width, self.view.frame.size.height - 5)];
-    [self.view addSubview:excelView];
-    
+    self.excelTableView = [[VEExcelTableView alloc] initWithFrame:CGRectMake(15, 20, Width, Height)];
+    [self.view addSubview:self.excelTableView];
     
     // Do any additional setup after loading the view, typically from a nib.
 }
 
 
-- (UITableView *)leftTableView {
-    if (!_leftTableView) {
-        _leftTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, (Width) / 4, Height) style:UITableViewStylePlain];
-        
-    }
-    return _leftTableView;
-}
-
-- (UITableView *)rightTableView {
-    if (!_rightTableView) {
-        _rightTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, Width, Height) style:UITableViewStylePlain];
-        
-    }
-    return _rightTableView;
-}
-
-- (UIScrollView *)rightScrollView {
-    if (!_rightScrollView) {
-        _rightScrollView = [[UIScrollView alloc] init];
-        
-        
-        
-    }
-    return _rightScrollView;
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -25,7 +25,7 @@
     for (int i = 0; i < _titles.count; i++) {
         UILabel *label = [[UILabel alloc] init];
         label.backgroundColor = [UIColor whiteColor];
-        label.textColor = [UIColor themeColor];
+        label.textColor = [UIColor greenColor];
         label.font = [UIFont systemFontOfSize:13];
         label.text = _titles[i];
         label.textAlignment = NSTextAlignmentCenter;

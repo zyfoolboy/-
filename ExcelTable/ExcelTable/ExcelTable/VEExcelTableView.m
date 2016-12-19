@@ -42,7 +42,7 @@ static NSString * const rightCellIdentifyer = @"rightCell";
     [_leftTableView setLayoutMargins:UIEdgeInsetsZero];
     [_leftTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellIdentifyer];
     [self addSubview:_leftTableView];
-    _rightView = [[UIScrollView alloc] initWithFrame:CGRectMake(self.jk_width / 4, 0, (self.jk_width / 4 * 3) + 1, self.jk_height)];
+    _rightView = [[UIScrollView alloc] initWithFrame:CGRectMake(self.jk_width / 4, 0, (self.jk_width / 4 * 3) + .5, self.jk_height)];
     _rightView.contentSize = CGSizeMake(self.jk_width / 4 * _rightTitles.count, self.jk_height);
     _rightView.delegate = self;
     _rightView.showsHorizontalScrollIndicator = NO;
@@ -90,7 +90,7 @@ static NSString * const rightCellIdentifyer = @"rightCell";
     } else {
         UILabel *label = [[UILabel alloc] init];
         label.backgroundColor = [UIColor whiteColor];
-        label.textColor = [UIColor themeColor];
+        label.textColor = [UIColor greenColor];
         label.font = [UIFont systemFontOfSize:13];
         label.text = @"哈哈哈哈";
         label.textAlignment = NSTextAlignmentCenter;
