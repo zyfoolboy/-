@@ -8,6 +8,7 @@
 
 #import "VEExcelTableView.h"
 #import "VEGridHeaderView.h"
+#import "VEExcelCell.h"
 
 static NSString * const cellIdentifyer = @"Cell";
 static NSString * const rightCellIdentifyer = @"rightCell";
@@ -50,7 +51,7 @@ static NSString * const rightCellIdentifyer = @"rightCell";
     [self addSubview:_rightView];
     _rightTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.jk_width / 4 * _rightTitles.count, self.jk_height) style:UITableViewStylePlain];
     _rightTableView.tableFooterView = [UIView new];
-    [_rightTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:rightCellIdentifyer];
+    [_rightTableView registerClass:[VEExcelCell class] forCellReuseIdentifier:rightCellIdentifyer];
     _rightTableView.delegate = self;
     _rightTableView.dataSource = self;
     [_rightTableView setSeparatorInset:UIEdgeInsetsZero];
@@ -75,8 +76,8 @@ static NSString * const rightCellIdentifyer = @"rightCell";
         
         return cell;
     } else {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:rightCellIdentifyer forIndexPath:indexPath];
-        
+        VEExcelCell *cell = [tableView dequeueReusableCellWithIdentifier:rightCellIdentifyer forIndexPath:indexPath];
+        cell.contents = @[@"a",@"b",@"c",@"d",@"e",@"f",@"g"];
         
         return cell;
     }

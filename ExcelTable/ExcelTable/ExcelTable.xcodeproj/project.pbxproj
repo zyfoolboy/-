@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1A5ECFE4D2305E4A2BBF6FB6 /* libPods-ExcelTableTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D3E8A54CF4BA8644232CCE8 /* libPods-ExcelTableTests.a */; };
+		6D9D7BB31E0817A400A45C39 /* VEExcelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9D7BB11E0817A400A45C39 /* VEExcelCell.m */; };
 		6D9E79D81E069F3900E41BE3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9E79D71E069F3900E41BE3 /* main.m */; };
 		6D9E79DB1E069F3900E41BE3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9E79DA1E069F3900E41BE3 /* AppDelegate.m */; };
 		6D9E79DE1E069F3900E41BE3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9E79DD1E069F3900E41BE3 /* ViewController.m */; };
@@ -46,6 +47,8 @@
 		479A0C66FEEA070AD6B0DB31 /* libPods-ExcelTableUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ExcelTableUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E5074C6D4F4E22E686190EC /* Pods-ExcelTableUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExcelTableUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ExcelTableUITests/Pods-ExcelTableUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6D9D7BAC1E08154100A45C39 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		6D9D7BB01E0817A400A45C39 /* VEExcelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VEExcelCell.h; sourceTree = "<group>"; };
+		6D9D7BB11E0817A400A45C39 /* VEExcelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VEExcelCell.m; sourceTree = "<group>"; };
 		6D9E79D31E069F3900E41BE3 /* ExcelTable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExcelTable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D9E79D71E069F3900E41BE3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6D9E79D91E069F3900E41BE3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -147,6 +150,8 @@
 				E75FDAD91E07E77C00A59E0E /* VEGridHeaderView.m */,
 				E75FDAD51E07E72F00A59E0E /* VEExcelTableView.h */,
 				E75FDAD61E07E72F00A59E0E /* VEExcelTableView.m */,
+				6D9D7BB01E0817A400A45C39 /* VEExcelCell.h */,
+				6D9D7BB11E0817A400A45C39 /* VEExcelCell.m */,
 				6D9D7BAC1E08154100A45C39 /* PrefixHeader.pch */,
 				6D9E79E21E069F3900E41BE3 /* Assets.xcassets */,
 				6D9E79E41E069F3900E41BE3 /* LaunchScreen.storyboard */,
@@ -458,6 +463,7 @@
 			files = (
 				6D9E79DE1E069F3900E41BE3 /* ViewController.m in Sources */,
 				E75FDAD71E07E72F00A59E0E /* VEExcelTableView.m in Sources */,
+				6D9D7BB31E0817A400A45C39 /* VEExcelCell.m in Sources */,
 				E75FDADC1E07E77C00A59E0E /* VEGridHeaderView.m in Sources */,
 				6D9E79DB1E069F3900E41BE3 /* AppDelegate.m in Sources */,
 				6D9E79D81E069F3900E41BE3 /* main.m in Sources */,
