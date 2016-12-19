@@ -38,6 +38,7 @@ static CGFloat const kEdgeDistance = 5;
 - (UITableView *)leftTableView {
     if (!_leftTableView) {
         _leftTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, (Width) / 4, Height) style:UITableViewStylePlain];
+        
     }
     return _leftTableView;
 }
@@ -45,6 +46,7 @@ static CGFloat const kEdgeDistance = 5;
 - (UITableView *)rightTableView {
     if (!_rightTableView) {
         _rightTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, Width, Height) style:UITableViewStylePlain];
+        
     }
     return _rightTableView;
 }
