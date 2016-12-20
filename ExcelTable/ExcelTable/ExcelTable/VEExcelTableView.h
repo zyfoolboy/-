@@ -10,6 +10,32 @@
 #import <Masonry/Masonry.h>
 #import <JKCategories/JKCategories.h>
 
-@interface VEExcelTableView : UIView
+@protocol VEExcelTableViewDelegate <NSObject>
+
+
 
 @end
+
+@protocol VEExcelTableViewDataSource <NSObject>
+
+@required
+
+
+
+@optional
+
+- (UIColor *)topTitleHeaderBackgroundColor;
+- (UIColor *)leftHeaderColorWithRow:(NSInteger)row;
+- (UIColor *)topHeaderBackgroundColorWithColumn:(NSInteger)column;
+- (UIColor *)contentBackgrountColorWithRow:(NSInteger)row column:(NSInteger)column;
+
+@end
+
+
+@interface VEExcelTableView : UIView
+
+@property (nonatomic, weak) id<VEExcelTableViewDataSource> dataSource;
+
+
+@end
+

@@ -86,6 +86,9 @@ static CGFloat const kPadding = .5;
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
         cell.contents = @[@"a",@"b",@"c",@"d",@"e",@"f",@"g"];
+        for (int i = 0; i < cell.labels.count; i++) {
+            cell.labels[i].backgroundColor = [self.dataSource contentBackgrountColorWithRow:indexPath.row column:i];
+        }
         
         return cell;
     }
