@@ -29,6 +29,22 @@
 
 @end
 
+@interface VEGridHeaderView : UIView
+
+@property (nonatomic, strong) NSMutableArray<UILabel *> *labels;
+
+- (instancetype)initWithFrame:(CGRect)frame withColumn:(NSInteger)column;
+
+@end
+
+@interface VEExcelCell : UITableViewCell
+
+@property (nonatomic, strong) NSMutableArray<UILabel *> *labels;
+
+
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier count:(NSInteger)count;
+
+@end
 
 @interface VEExcelTableView : UIView
 
