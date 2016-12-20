@@ -9,6 +9,7 @@
 #import "VEExcelTableView.h"
 #import "VEGridHeaderView.h"
 #import "VEExcelCell.h"
+#import "VEExcelTitleCell.h"
 
 static NSString * const cellIdentifyer = @"Cell";
 static NSString * const rightCellIdentifyer = @"rightCell";
@@ -40,13 +41,15 @@ static CGFloat const kPadding = .5;
     _leftTableView.tableFooterView = [UIView new];
     _leftTableView.delegate = self;
     _leftTableView.dataSource = self;
+    _leftTableView.bounces = NO;
     [_leftTableView setSeparatorInset:UIEdgeInsetsZero];
     [_leftTableView setLayoutMargins:UIEdgeInsetsZero];
-    [_leftTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellIdentifyer];
+    [_leftTableView registerNib:[UINib nibWithNibName:@"VEExcelTitleCell" bundle:nil] forCellReuseIdentifier:cellIdentifyer];
     [self addSubview:_leftTableView];
     _rightView = [[UIScrollView alloc] initWithFrame:CGRectMake(self.jk_width / 4, 0, (self.jk_width / 4 * 3) + kPadding, self.jk_height)];
     _rightView.contentSize = CGSizeMake(self.jk_width / 4 * _rightTitles.count, self.jk_height);
     _rightView.delegate = self;
+    _rightView.bounces = NO;
     _rightView.showsHorizontalScrollIndicator = NO;
     _rightView.showsVerticalScrollIndicator = NO;
     [self addSubview:_rightView];
@@ -54,6 +57,7 @@ static CGFloat const kPadding = .5;
     _rightTableView.tableFooterView = [UIView new];
     _rightTableView.delegate = self;
     _rightTableView.dataSource = self;
+    _rightTableView.bounces = NO;
     [_rightTableView setSeparatorInset:UIEdgeInsetsZero];
     [_rightTableView setLayoutMargins:UIEdgeInsetsZero];
     [_rightView addSubview:_rightTableView];
@@ -71,14 +75,15 @@ static CGFloat const kPadding = .5;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (tableView == self.leftTableView) {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifyer forIndexPath:indexPath];
-        
+        VEExcelTitleCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifyer forIndexPath:indexPath];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         return cell;
     } else {
         VEExcelCell *cell = [tableView dequeueReusableCellWithIdentifier:rightCellIdentifyer];
         if (!cell) {
             cell = [[VEExcelCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:rightCellIdentifyer count:7];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
         cell.contents = @[@"a",@"b",@"c",@"d",@"e",@"f",@"g"];
         

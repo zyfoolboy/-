@@ -21,6 +21,8 @@
 		C128F547FABAAB7ABD37DCB6 /* libPods-ExcelTableUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 479A0C66FEEA070AD6B0DB31 /* libPods-ExcelTableUITests.a */; };
 		E75FDAD71E07E72F00A59E0E /* VEExcelTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E75FDAD61E07E72F00A59E0E /* VEExcelTableView.m */; };
 		E75FDADC1E07E77C00A59E0E /* VEGridHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E75FDAD91E07E77C00A59E0E /* VEGridHeaderView.m */; };
+		E75FDAE11E08BD5100A59E0E /* VEExcelTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E75FDADF1E08BD5100A59E0E /* VEExcelTitleCell.m */; };
+		E75FDAE21E08BD5100A59E0E /* VEExcelTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E75FDAE01E08BD5100A59E0E /* VEExcelTitleCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,9 @@
 		E75FDAD61E07E72F00A59E0E /* VEExcelTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VEExcelTableView.m; sourceTree = "<group>"; };
 		E75FDAD81E07E77C00A59E0E /* VEGridHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VEGridHeaderView.h; sourceTree = "<group>"; };
 		E75FDAD91E07E77C00A59E0E /* VEGridHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VEGridHeaderView.m; sourceTree = "<group>"; };
+		E75FDADE1E08BD5100A59E0E /* VEExcelTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VEExcelTitleCell.h; sourceTree = "<group>"; };
+		E75FDADF1E08BD5100A59E0E /* VEExcelTitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VEExcelTitleCell.m; sourceTree = "<group>"; };
+		E75FDAE01E08BD5100A59E0E /* VEExcelTitleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VEExcelTitleCell.xib; sourceTree = "<group>"; };
 		EDE1070789BBB3659D5435D9 /* libPods-ExcelTable.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ExcelTable.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB2613AADFEA7016C0277218 /* Pods-ExcelTableTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExcelTableTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ExcelTableTests/Pods-ExcelTableTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -152,6 +157,9 @@
 				E75FDAD61E07E72F00A59E0E /* VEExcelTableView.m */,
 				6D9D7BB01E0817A400A45C39 /* VEExcelCell.h */,
 				6D9D7BB11E0817A400A45C39 /* VEExcelCell.m */,
+				E75FDADE1E08BD5100A59E0E /* VEExcelTitleCell.h */,
+				E75FDADF1E08BD5100A59E0E /* VEExcelTitleCell.m */,
+				E75FDAE01E08BD5100A59E0E /* VEExcelTitleCell.xib */,
 				6D9D7BAC1E08154100A45C39 /* PrefixHeader.pch */,
 				6D9E79E21E069F3900E41BE3 /* Assets.xcassets */,
 				6D9E79E41E069F3900E41BE3 /* LaunchScreen.storyboard */,
@@ -314,6 +322,7 @@
 				6D9E79E61E069F3900E41BE3 /* LaunchScreen.storyboard in Resources */,
 				6D9E79E31E069F3900E41BE3 /* Assets.xcassets in Resources */,
 				6D9E79E11E069F3900E41BE3 /* Main.storyboard in Resources */,
+				E75FDAE21E08BD5100A59E0E /* VEExcelTitleCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,6 +475,7 @@
 				6D9D7BB31E0817A400A45C39 /* VEExcelCell.m in Sources */,
 				E75FDADC1E07E77C00A59E0E /* VEGridHeaderView.m in Sources */,
 				6D9E79DB1E069F3900E41BE3 /* AppDelegate.m in Sources */,
+				E75FDAE11E08BD5100A59E0E /* VEExcelTitleCell.m in Sources */,
 				6D9E79D81E069F3900E41BE3 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
