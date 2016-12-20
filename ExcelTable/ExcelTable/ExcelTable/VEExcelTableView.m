@@ -130,8 +130,12 @@ static CGFloat const kPadding = .5;
     
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [self.dataSource heightForRowAtRow:indexPath.row + 1];
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 20;
+    return [self.dataSource heightForRowAtRow:0];
 }
 
 #pragma mark - UIScrollViewDelegate

@@ -22,6 +22,7 @@
 
 - (UIColor *)contentBackgrountColorWithRow:(NSInteger)row column:(NSInteger)column;
 - (UIColor *)textColorWithRow:(NSInteger)row column:(NSInteger)column;
+- (CGFloat)heightForRowAtRow:(NSInteger)row;
 
 @optional
 

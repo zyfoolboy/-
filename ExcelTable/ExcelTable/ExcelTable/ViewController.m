@@ -61,6 +61,13 @@
     return [UIColor whiteColor];
 }
 
+- (CGFloat)heightForRowAtRow:(NSInteger)row {
+    if (row == 0) {
+        return 20;
+    }
+    return 30;
+}
+
 - (NSString *)textWithRow:(NSInteger)row column:(NSInteger)column {
     return @"abc";
 }
