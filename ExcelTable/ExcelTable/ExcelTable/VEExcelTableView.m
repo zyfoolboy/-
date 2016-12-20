@@ -77,7 +77,7 @@ static CGFloat const kPadding = .5;
     if (tableView == self.leftTableView) {
         VEExcelTitleCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifyer forIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
+        cell.titleLabel.backgroundColor = [self.dataSource contentBackgrountColorWithRow:indexPath.row + 1 column:0];
         return cell;
     } else {
         VEExcelCell *cell = [tableView dequeueReusableCellWithIdentifier:rightCellIdentifyer];
@@ -98,12 +98,16 @@ static CGFloat const kPadding = .5;
     if (tableView == self.rightTableView) {
         VEGridHeaderView *headerView = [[VEGridHeaderView alloc] initWithFrame:CGRectMake(0, 0, tableView.jk_width, 20) titles:self.rightTitles];
         
+        for (int i = 0; i < self.rightTitles.count; i++) {
+            headerView.labels[i].backgroundColor = [self.dataSource contentBackgrountColorWithRow:0 column:i+1];
+        }
+        
         return headerView;
     } else {
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.jk_width, 20)];
         view.backgroundColor = [UIColor lightGrayColor];
         UILabel *label = [[UILabel alloc] init];
-        label.backgroundColor = [UIColor whiteColor];
+        label.backgroundColor = [self.dataSource contentBackgrountColorWithRow:0 column:0];
         label.textColor = [UIColor greenColor];
         label.font = [UIFont systemFontOfSize:13];
         label.text = @"哈哈哈哈";
