@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface VEExcelTitleCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *textLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @end

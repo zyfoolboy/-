@@ -35,7 +35,7 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
             <connections>
-                <outlet property="textLabel" destination="OPl-PL-ELf" id="cbB-1i-KD3"/>
+                <outlet property="titleLabel" destination="OPl-PL-ELf" id="vYm-ES-W53"/>
             </connections>
         </tableViewCell>
     </objects>
