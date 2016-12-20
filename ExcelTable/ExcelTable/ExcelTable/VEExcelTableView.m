@@ -82,7 +82,7 @@ static CGFloat const kPadding = .5;
     } else {
         VEExcelCell *cell = [tableView dequeueReusableCellWithIdentifier:rightCellIdentifyer];
         if (!cell) {
-            cell = [[VEExcelCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:rightCellIdentifyer count:7];
+            cell = [[VEExcelCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:rightCellIdentifyer count:self.rightTitles.count];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
         cell.contents = @[@"a",@"b",@"c",@"d",@"e",@"f",@"g"];

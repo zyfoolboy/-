@@ -53,7 +53,7 @@ static CGFloat const kPadding = .5;
         label.font = [UIFont systemFontOfSize:13];
         label.textAlignment = NSTextAlignmentCenter;
         [_labels addObject:label];
-        [self.contentView addSubview:label];
+        [self addSubview:label];
     }
     for (int i = 0; i < _line; i++) {
         if (i == 0) {
