@@ -26,10 +26,10 @@ static CGFloat const kPadding = .5;
 
 @implementation VEExcelTableView
 
+
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        
         _rightTitles = @[@"1",@"2",@"3",@"4",@"5",@"6",@"7"].mutableCopy;
         [self setupSubviews];
     }

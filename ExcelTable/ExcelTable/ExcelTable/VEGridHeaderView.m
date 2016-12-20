@@ -10,6 +10,7 @@
 
 @implementation VEGridHeaderView
 
+
 - (instancetype)initWithFrame:(CGRect)frame titles:(NSArray *)titles {
     self = [super initWithFrame:frame];
     if (self) {

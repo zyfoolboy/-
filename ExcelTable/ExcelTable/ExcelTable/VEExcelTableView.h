@@ -20,8 +20,6 @@
 
 @required
 
-
-
 @optional
 
 - (UIColor *)topTitleHeaderBackgroundColor;
@@ -36,6 +34,7 @@
 
 @property (nonatomic, weak) id<VEExcelTableViewDataSource> dataSource;
 
+- (void)setupSubviews;
 
 @end
 

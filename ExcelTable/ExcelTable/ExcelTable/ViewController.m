@@ -27,12 +27,31 @@
     self.excelTableView.dataSource = self;
     [self.view addSubview:self.excelTableView];
     
+    
     // Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    
+    [self.excelTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view.mas_top).offset(20);
+        make.left.equalTo(self.view.mas_left).offset(15);
+        make.width.mas_equalTo(@(Width));
+        make.height.mas_equalTo(@(Height));
+        //        make.right.equalTo(self.view.mas_right).offset(-15);
+        //        make.bottom.equalTo(self.view.mas_bottom);
+    }];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
 }
 
 - (UIColor *)contentBackgrountColorWithRow:(NSInteger)row column:(NSInteger)column {
     if (column == 1) {
-        return [UIColor greenColor];
+        return [UIColor yellowColor];
     }
     return [UIColor redColor];
 }
