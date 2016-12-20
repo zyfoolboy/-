@@ -32,7 +32,8 @@
 
 @property (nonatomic, weak) id<VEExcelTableViewDataSource> dataSource;
 @property (nonatomic, weak) id<VEExcelTableViewDelegate> delegate;
-- (void)setupSubviews;
+
+- (instancetype)initWithFrame:(CGRect)frame withColumn:(NSInteger)column;
 
 @end
 

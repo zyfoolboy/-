@@ -23,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.excelTableView = [[VEExcelTableView alloc] initWithFrame:CGRectMake(15, 20, Width, Height)];
+    self.excelTableView = [[VEExcelTableView alloc] initWithFrame:CGRectMake(15, 20, Width, Height) withColumn:7];
     self.excelTableView.dataSource = self;
     self.excelTableView.delegate = self;
     [self.view addSubview:self.excelTableView];

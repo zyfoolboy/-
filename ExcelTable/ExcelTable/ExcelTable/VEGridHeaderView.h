@@ -13,8 +13,7 @@
 @interface VEGridHeaderView : UIView
 
 @property (nonatomic, strong) NSMutableArray<UILabel *> *labels;
-@property (nonatomic, copy) NSArray *titles;
 
-- (instancetype)initWithFrame:(CGRect)frame titles:(NSArray *)titles;
+- (instancetype)initWithFrame:(CGRect)frame withColumn:(NSInteger)column;
 
 @end
