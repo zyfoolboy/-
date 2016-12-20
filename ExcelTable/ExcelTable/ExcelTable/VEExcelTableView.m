@@ -131,11 +131,17 @@ static CGFloat const kPadding = .5;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [self.dataSource heightForRowAtRow:indexPath.row + 1];
+    if ([self.dataSource respondsToSelector:@selector(heightForRowAtRow:)]) {
+        return [self.dataSource heightForRowAtRow:indexPath.row + 1];
+    }
+    return 40;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return [self.dataSource heightForRowAtRow:0];
+    if ([self.dataSource respondsToSelector:@selector(heightForRowAtRow:)]) {
+        return [self.dataSource heightForRowAtRow:0];
+    }
+    return 30;
 }
 
 #pragma mark - UIScrollViewDelegate
