@@ -42,6 +42,7 @@ static CGFloat const kPadding = .5;
     _leftTableView.delegate = self;
     _leftTableView.dataSource = self;
     _leftTableView.bounces = NO;
+    _leftTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [_leftTableView setSeparatorInset:UIEdgeInsetsZero];
     [_leftTableView setLayoutMargins:UIEdgeInsetsZero];
     [_leftTableView registerNib:[UINib nibWithNibName:@"VEExcelTitleCell" bundle:nil] forCellReuseIdentifier:cellIdentifyer];
@@ -78,6 +79,8 @@ static CGFloat const kPadding = .5;
         VEExcelTitleCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifyer forIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.titleLabel.backgroundColor = [self.dataSource contentBackgrountColorWithRow:indexPath.row + 1 column:0];
+        cell.titleLabel.text = [self.delegate textWithRow:indexPath.row + 1 column:0];
+        cell.titleLabel.textColor = [self.dataSource textColorWithRow:indexPath.row + 1 column:0];
         return cell;
     } else {
         VEExcelCell *cell = [tableView dequeueReusableCellWithIdentifier:rightCellIdentifyer];
@@ -85,9 +88,10 @@ static CGFloat const kPadding = .5;
             cell = [[VEExcelCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:rightCellIdentifyer count:self.rightTitles.count];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
-        cell.contents = @[@"a",@"b",@"c",@"d",@"e",@"f",@"g"];
         for (int i = 0; i < cell.labels.count; i++) {
-            cell.labels[i].backgroundColor = [self.dataSource contentBackgrountColorWithRow:indexPath.row column:i];
+            cell.labels[i].backgroundColor = [self.dataSource contentBackgrountColorWithRow:indexPath.row + 1 column:i + 1];
+            cell.labels[i].text = [self.delegate textWithRow:indexPath.row + 1 column:i + 1];
+            cell.labels[i].backgroundColor = [self.dataSource textColorWithRow:indexPath.row + 1 column:i + 1];
         }
         
         return cell;
@@ -99,7 +103,9 @@ static CGFloat const kPadding = .5;
         VEGridHeaderView *headerView = [[VEGridHeaderView alloc] initWithFrame:CGRectMake(0, 0, tableView.jk_width, 20) titles:self.rightTitles];
         
         for (int i = 0; i < self.rightTitles.count; i++) {
-            headerView.labels[i].backgroundColor = [self.dataSource contentBackgrountColorWithRow:0 column:i+1];
+            headerView.labels[i].backgroundColor = [self.dataSource contentBackgrountColorWithRow:0 column:i + 1];
+            headerView.labels[i].text = [self.delegate textWithRow:0 column:i + 1];
+            headerView.labels[i].textColor = [self.dataSource textColorWithRow:0 column:i + 1];
         }
         
         return headerView;
@@ -108,9 +114,9 @@ static CGFloat const kPadding = .5;
         view.backgroundColor = [UIColor lightGrayColor];
         UILabel *label = [[UILabel alloc] init];
         label.backgroundColor = [self.dataSource contentBackgrountColorWithRow:0 column:0];
-        label.textColor = [UIColor greenColor];
+        label.textColor = [self.dataSource textColorWithRow:0 column:0];
         label.font = [UIFont systemFontOfSize:13];
-        label.text = @"哈哈哈哈";
+        label.text = [self.delegate textWithRow:0 column:0];
         label.textAlignment = NSTextAlignmentCenter;
         [view addSubview:label];
         [label mas_makeConstraints:^(MASConstraintMaker *make) {

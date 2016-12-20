@@ -34,22 +34,10 @@ static CGFloat const kPadding = .5;
     // Initialization code
 }
 
-- (void)setContents:(NSArray *)contents {
-    _contents = contents;
-    if (!_contents) {
-        return;
-    }
-    for (int i = 0; i < _contents.count; i++) {
-        _labels[i].text = _contents[i];
-    }
-}
-
 - (void)setupSubviews {
     self.backgroundColor = [UIColor lightGrayColor];
     for (int i = 0; i < _line; i++) {
         UILabel *label = [[UILabel alloc] init];
-        label.backgroundColor = [UIColor whiteColor];
-        label.textColor = [UIColor greenColor];
         label.font = [UIFont systemFontOfSize:13];
         label.textAlignment = NSTextAlignmentCenter;
         [_labels addObject:label];

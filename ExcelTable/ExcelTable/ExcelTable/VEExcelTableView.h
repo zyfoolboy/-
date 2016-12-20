@@ -11,17 +11,17 @@
 #import <JKCategories/JKCategories.h>
 
 @protocol VEExcelTableViewDelegate <NSObject>
-
-
-
+@required
+- (NSString *)textWithRow:(NSInteger)row column:(NSInteger)column;
+@optional
 @end
 
 @protocol VEExcelTableViewDataSource <NSObject>
 
 @required
 
-
 - (UIColor *)contentBackgrountColorWithRow:(NSInteger)row column:(NSInteger)column;
+- (UIColor *)textColorWithRow:(NSInteger)row column:(NSInteger)column;
 
 @optional
 
@@ -31,7 +31,7 @@
 @interface VEExcelTableView : UIView
 
 @property (nonatomic, weak) id<VEExcelTableViewDataSource> dataSource;
-
+@property (nonatomic, weak) id<VEExcelTableViewDelegate> delegate;
 - (void)setupSubviews;
 
 @end
