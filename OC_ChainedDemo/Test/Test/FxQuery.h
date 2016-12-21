@@ -7,13 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FxQueryCst.h"
 
-typedef NS_ENUM(NSUInteger, FxRange) {
-    BASIC = 0,
-    LIST,
-    MORE,
-    HIDDEN
-};
 
 @interface FxPage : NSObject
 
@@ -41,9 +36,9 @@ typedef NS_ENUM(NSUInteger, FxRange) {
 @property (nonatomic, copy) NSString *column;
 @property (nonatomic, strong) NSMutableArray *value;
 
-- (FxTerm *(^)(NSString *, NSString *))create;
++ (FxTerm *(^)(NSString *, NSString *))create;
 - (FxTerm *(^)(NSString *, id))eq;
-
+- (FxTerm *(^)(NSString *, id))ne;
 
 @end
 
@@ -55,7 +50,7 @@ typedef NS_ENUM(NSUInteger, FxRange) {
 @property (nonatomic, strong) FxTerm *where;
 @property (nonatomic, strong) NSMutableArray<FxOrderBy *> *sort;
 
-- (FxQuery *(^)(BOOL ,FxRange))create;
++ (FxQuery *(^)(BOOL ,FxRange))create;
 - (FxQuery *(^)(NSString *,id))eq;
 
 - (FxQuery *(^)(FxOrderBy *, ...))addSort;

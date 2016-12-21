@@ -21,21 +21,41 @@
 
 @implementation FxTerm
 
-//- (FxTerm *(^)(NSString *, id))eq {
-//    return ^(NSString *columnName, id value) {
-//        FxTerm *subTerm = [FxTerm new];
-//        [subTerm.value addObject:value];
-//        
-//        return subTerm;
-//    };
-//}
++ (FxTerm *(^)(NSString *, NSString *))create {
+    return ^(NSString *type, NSString *column){
+        FxTerm *fxTerm = [FxTerm new];
+        fxTerm.type = type;
+        fxTerm.column = column;
+        return fxTerm;
+    };
+}
+
+- (FxTerm *(^)(NSString *, id))eq {
+    return ^(NSString *columnName, id value) {
+        FxTerm *fxTerm = [FxTerm new];
+        FxTerm *subTerm = FxTerm.create(FxQueryCst.EQ, columnName);
+        [subTerm.value addObject:value];
+        [fxTerm.subTerms addObject:subTerm];
+        return fxTerm;
+    };
+}
+
+- (FxTerm *(^)(NSString *, id))ne {
+    return ^(NSString *columnName, id value) {
+        FxTerm *fxTerm = [FxTerm new];
+        FxTerm *subTerm = FxTerm.create(FxQueryCst.NE, columnName);
+        [subTerm.value addObject:value];
+        [fxTerm.subTerms addObject:subTerm];
+        return fxTerm;
+    };
+}
 
 @end
 
 
 @implementation FxQuery
 
-- (FxQuery *(^)(BOOL, FxRange))create {
++ (FxQuery *(^)(BOOL, FxRange))create {
     return ^(BOOL unio, FxRange range){
         FxQuery *query = [FxQuery new];
         query.unio = unio;
