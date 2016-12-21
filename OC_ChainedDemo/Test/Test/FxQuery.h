@@ -37,6 +37,7 @@
 @property (nonatomic, strong) NSMutableArray *value;
 
 + (FxTerm *(^)(NSString *, NSString *))create;
+- (FxTerm *(^)(FxTerm *))addTerm;
 - (FxTerm *(^)(NSString *, id))eq;
 - (FxTerm *(^)(NSString *, id))ne;
 
@@ -49,9 +50,12 @@
 @property (nonatomic, assign) FxRange range;
 @property (nonatomic, strong) FxTerm *where;
 @property (nonatomic, strong) NSMutableArray<FxOrderBy *> *sort;
+@property (nonatomic, strong) FxPage *page;
 
 + (FxQuery *(^)(BOOL ,FxRange))create;
 - (FxQuery *(^)(NSString *,id))eq;
+- (FxQuery *(^)(NSString *, id ,...))in;
 
 - (FxQuery *(^)(FxOrderBy *, ...))addSort;
+
 @end
