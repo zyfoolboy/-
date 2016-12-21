@@ -8,14 +8,35 @@
 
 #import "FxQuery.h"
 
-@implementation FxPage
+#define FxQueryCst_Str(_name) \
++ (NSString *)_name {\
+return @#_name;\
+}
 
+@implementation FxQueryCst
 
+FxQueryCst_Str(AND)
+FxQueryCst_Str(OR)
+FxQueryCst_Str(EQ)
+FxQueryCst_Str(NE)
+FxQueryCst_Str(GE)
+FxQueryCst_Str(LE)
+FxQueryCst_Str(GT)
+FxQueryCst_Str(LT)
+FxQueryCst_Str(IN)
+FxQueryCst_Str(LIKE)
+FxQueryCst_Str(BETWEEN)
+FxQueryCst_Str(ASC)
+FxQueryCst_Str(DESC)
 
 @end
+
+
+@implementation FxPage
+
+@end
+
 @implementation FxOrderBy
-
-
 
 @end
 
@@ -113,18 +134,6 @@
         }
         va_end(_arguments);
         self.where.addTerm(subTerm);
-        return self;
-    };
-}
-
-- (FxQuery *(^)(FxOrderBy *, ...))addSort {
-    return ^(FxOrderBy *first,...) {
-        va_list _arguments;
-        va_start(_arguments, first);
-        for (FxOrderBy *key = first; key != nil; key = (__bridge FxOrderBy *)va_arg(_arguments, void *)) {
-            [self.sort addObject:key];
-        }
-        va_end(_arguments);
         return self;
     };
 }

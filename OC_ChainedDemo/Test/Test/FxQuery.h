@@ -7,8 +7,31 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "FxQueryCst.h"
 
+typedef NS_ENUM(NSUInteger, FxRange) {
+    BASIC = 0,
+    LIST,
+    MORE,
+    HIDDEN
+};
+
+@interface FxQueryCst : NSObject
+
++ (NSString *)AND;
++ (NSString *)OR;
++ (NSString *)EQ;
++ (NSString *)NE;
++ (NSString *)GE;
++ (NSString *)LE;
++ (NSString *)GT;
++ (NSString *)LT;
++ (NSString *)IN;
++ (NSString *)LIKE;
++ (NSString *)BETWEEN;
++ (NSString *)ASC;
++ (NSString *)DESC;
+
+@end
 
 @interface FxPage : NSObject
 
@@ -55,7 +78,5 @@
 + (FxQuery *(^)(BOOL ,FxRange))create;
 - (FxQuery *(^)(NSString *,id))eq;
 - (FxQuery *(^)(NSString *, id ,...))in;
-
-- (FxQuery *(^)(FxOrderBy *, ...))addSort;
 
 @end

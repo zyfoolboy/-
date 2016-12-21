@@ -23,7 +23,7 @@
 //    FxSort *sort1 = [FxSort new];
 //    FxParam *fx = FxParam.create.addPage(1, 2).addUnion(NO).addSort(sort, sort1, nil);
     
-    FxQuery *query = FxQuery.create(YES, BASIC).in(@"1" ,@"2", @"3",nil);
+    FxQuery *query = FxQuery.create(YES, BASIC).in(@"1" ,@"2", @"3", nil);
     
     Team *t = [Team create];
     t.addStu([Student new]).add(@"zhangsan");

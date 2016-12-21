@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6D9D7BB71E0AB7A400A45C39 /* FxQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9D7BB61E0AB7A400A45C39 /* FxQuery.m */; };
-		6D9D7BBA1E0AC71300A45C39 /* FxQueryCst.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9D7BB91E0AC71300A45C39 /* FxQueryCst.m */; };
 		6D9E79901E057BA600E41BE3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9E798F1E057BA600E41BE3 /* main.m */; };
 		6D9E79931E057BA600E41BE3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9E79921E057BA600E41BE3 /* AppDelegate.m */; };
 		6D9E79961E057BA600E41BE3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9E79951E057BA600E41BE3 /* ViewController.m */; };
@@ -42,8 +41,6 @@
 /* Begin PBXFileReference section */
 		6D9D7BB51E0AB7A400A45C39 /* FxQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FxQuery.h; sourceTree = "<group>"; };
 		6D9D7BB61E0AB7A400A45C39 /* FxQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FxQuery.m; sourceTree = "<group>"; };
-		6D9D7BB81E0AC71300A45C39 /* FxQueryCst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FxQueryCst.h; sourceTree = "<group>"; };
-		6D9D7BB91E0AC71300A45C39 /* FxQueryCst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FxQueryCst.m; sourceTree = "<group>"; };
 		6D9E798B1E057BA600E41BE3 /* Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D9E798F1E057BA600E41BE3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6D9E79911E057BA600E41BE3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -128,8 +125,6 @@
 				6D9E79C81E058ADF00E41BE3 /* FxParam.m */,
 				6D9D7BB51E0AB7A400A45C39 /* FxQuery.h */,
 				6D9D7BB61E0AB7A400A45C39 /* FxQuery.m */,
-				6D9D7BB81E0AC71300A45C39 /* FxQueryCst.h */,
-				6D9D7BB91E0AC71300A45C39 /* FxQueryCst.m */,
 				6D9E79971E057BA600E41BE3 /* Main.storyboard */,
 				6D9E799A1E057BA600E41BE3 /* Assets.xcassets */,
 				6D9E799C1E057BA600E41BE3 /* LaunchScreen.storyboard */,
@@ -303,7 +298,6 @@
 				6D9D7BB71E0AB7A400A45C39 /* FxQuery.m in Sources */,
 				6D9E79931E057BA600E41BE3 /* AppDelegate.m in Sources */,
 				6D9E79C91E058ADF00E41BE3 /* FxParam.m in Sources */,
-				6D9D7BBA1E0AC71300A45C39 /* FxQueryCst.m in Sources */,
 				6D9E79901E057BA600E41BE3 /* main.m in Sources */,
 				6D9E79C31E057BC200E41BE3 /* Student.m in Sources */,
 			);
