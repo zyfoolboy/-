@@ -27,6 +27,7 @@
 - (UIColor *)topHeaderBackgroundColorWithColumn:(NSInteger)column;
 - (UIColor *)contentBackgrountColorWithRow:(NSInteger)row column:(NSInteger)column;
 
+
 @end
 
 
