@@ -12,7 +12,7 @@
 #define Width [UIScreen mainScreen].bounds.size.width - 30
 #define Height [UIScreen mainScreen].bounds.size.height - 20
 
-@interface ViewController () <VEExcelTableViewDataSource>
+@interface ViewController () <VEExcelTableViewDataSource, VEExcelTableViewDelegate>
 
 @property (nonatomic, strong) VEExcelTableView *excelTableView;
 
@@ -23,8 +23,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.excelTableView = [[VEExcelTableView alloc] initWithFrame:CGRectMake(15, 20, Width, Height)];
+    self.excelTableView = [[VEExcelTableView alloc] initWithFrame:CGRectMake(15, 20, Width, Height) withColumn:7];
     self.excelTableView.dataSource = self;
+    self.excelTableView.delegate = self;
     [self.view addSubview:self.excelTableView];
     
     // Do any additional setup after loading the view, typically from a nib.
@@ -40,6 +41,21 @@
         return [UIColor yellowColor];
     }
     return [UIColor redColor];
+}
+
+- (UIColor *)textColorWithRow:(NSInteger)row column:(NSInteger)column {
+    return [UIColor whiteColor];
+}
+
+- (CGFloat)heightForRowAtRow:(NSInteger)row {
+    if (row == 0) {
+        return 20;
+    }
+    return 30;
+}
+
+- (NSString *)textWithRow:(NSInteger)row column:(NSInteger)column {
+    return @"abc";
 }
 
 - (void)didReceiveMemoryWarning {

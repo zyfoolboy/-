@@ -11,31 +11,48 @@
 #import <JKCategories/JKCategories.h>
 
 @protocol VEExcelTableViewDelegate <NSObject>
-
-
-
+@required
+- (NSString *)textWithRow:(NSInteger)row column:(NSInteger)column;
+@optional
 @end
 
 @protocol VEExcelTableViewDataSource <NSObject>
 
 @required
 
+- (UIColor *)contentBackgrountColorWithRow:(NSInteger)row column:(NSInteger)column;
+- (UIColor *)textColorWithRow:(NSInteger)row column:(NSInteger)column;
+
 @optional
 
-- (UIColor *)topTitleHeaderBackgroundColor;
-- (UIColor *)leftHeaderColorWithRow:(NSInteger)row;
-- (UIColor *)topHeaderBackgroundColorWithColumn:(NSInteger)column;
-- (UIColor *)contentBackgrountColorWithRow:(NSInteger)row column:(NSInteger)column;
+- (CGFloat)heightForRowAtRow:(NSInteger)row;
+
+@end
+
+@interface VEGridHeaderView : UIView
+
+@property (nonatomic, strong) NSMutableArray<UILabel *> *labels;
+
+- (instancetype)initWithFrame:(CGRect)frame withColumn:(NSInteger)column;
 
 
 @end
 
+@interface VEExcelCell : UITableViewCell
+
+@property (nonatomic, strong) NSMutableArray<UILabel *> *labels;
+
+
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier count:(NSInteger)count;
+
+@end
 
 @interface VEExcelTableView : UIView
 
 @property (nonatomic, weak) id<VEExcelTableViewDataSource> dataSource;
+@property (nonatomic, weak) id<VEExcelTableViewDelegate> delegate;
 
-- (void)setupSubviews;
+- (instancetype)initWithFrame:(CGRect)frame withColumn:(NSInteger)column;
 
 @end
 
