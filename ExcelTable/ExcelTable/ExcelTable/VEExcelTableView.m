@@ -74,8 +74,6 @@ static CGFloat const kPadding = .5;
 
 @interface VEExcelCell ()
 
-@property (assign, nonatomic) NSInteger line;
-
 @end
 
 @implementation VEExcelCell
@@ -83,9 +81,8 @@ static CGFloat const kPadding = .5;
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier count:(NSInteger)count {
     self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
     if (self) {
-        _line = count;
         _labels = [NSMutableArray array];
-        [self setupSubviews];
+        [self setupSubviewsAtCount:count];
     }
     return self;
 }
@@ -96,16 +93,16 @@ static CGFloat const kPadding = .5;
     // Initialization code
 }
 
-- (void)setupSubviews {
+- (void)setupSubviewsAtCount:(NSInteger)count {
     self.backgroundColor = [UIColor lightGrayColor];
-    for (int i = 0; i < _line; i++) {
+    for (int i = 0; i < count; i++) {
         UILabel *label = [[UILabel alloc] init];
         label.font = [UIFont systemFontOfSize:13];
         label.textAlignment = NSTextAlignmentCenter;
         [_labels addObject:label];
         [self addSubview:label];
     }
-    for (int i = 0; i < _line; i++) {
+    for (int i = 0; i < count; i++) {
         if (i == 0) {
             [_labels[i] mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.equalTo(self.mas_left).offset(1);
@@ -114,7 +111,7 @@ static CGFloat const kPadding = .5;
                 make.right.equalTo(_labels[i + 1].mas_left).offset(-kPadding);
                 make.width.equalTo(_labels[i + 1]);
             }];
-        } else if (i == _line - 1) {
+        } else if (i == count - 1) {
             [_labels[i] mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.equalTo(_labels[i - 1].mas_right).offset(kPadding);
                 make.top.equalTo(self.mas_top);
