@@ -48,6 +48,10 @@
     return 7;
 }
 
+- (NSInteger)excelViewWithRow {
+    return 6;
+}
+
 - (UIColor *)contentBackgrountColorWithRow:(NSInteger)row column:(NSInteger)column {
     if (column == 1) {
         return [UIColor yellowColor];

@@ -196,7 +196,7 @@ static CGFloat const kPadding = .5;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return [self.delegate excelViewWithRow] - 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -291,7 +291,6 @@ static CGFloat const kPadding = .5;
         make.top.equalTo(self.mas_top);
         make.left.equalTo(self.mas_left);
         make.width.equalTo(self.mas_width).multipliedBy(0.25);
-//        make.width.mas_equalTo(@((self.jk_width / 4) + kPadding));
         make.bottom.equalTo(self.mas_bottom);
     }];
     
@@ -303,8 +302,6 @@ static CGFloat const kPadding = .5;
     }];
     
     [_rightTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(_rightView.mas_top);
-//        make.left.equalTo(_rightView.mas_left);
         make.edges.equalTo(_rightView);
         make.height.equalTo(_leftTableView.mas_height);
         make.width.equalTo(_leftTableView.mas_width).multipliedBy(_contentColumn - 1);
