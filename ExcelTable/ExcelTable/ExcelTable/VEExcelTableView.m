@@ -279,6 +279,25 @@ static CGFloat const kPadding = .5;
     }
 }
 
+- (void)setDelegate:(id<VEExcelTableViewDelegate>)delegate {
+    _delegate = delegate;
+    _contentColumn = [delegate excelViewWithColumn];
+    [self setupSubviews];
+    [self commonInit];
+}
+
+- (void)commonInit {
+    [_leftTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.mas_top);
+        make.left.equalTo(self.mas_left);
+        make.width.equalTo(self.mas_width).multipliedBy(0.25);
+//        make.width.mas_equalTo(@((self.jk_width / 4) + kPadding));
+        make.bottom.equalTo(self.mas_bottom);
+    }];
+}
+
+
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
