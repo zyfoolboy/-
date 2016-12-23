@@ -9,8 +9,8 @@
 #import "FxQuery.h"
 
 #define FxQueryCst_Str(_name) \
-+ (NSString *)_name {\
-return @#_name;\
++ (NSString *)_name { \
+return @#_name; \
 }
 
 @implementation FxQueryCst
