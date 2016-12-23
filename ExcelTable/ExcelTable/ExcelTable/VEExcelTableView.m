@@ -173,7 +173,7 @@ static CGFloat const kPadding = .5;
     [_leftTableView registerNib:[UINib nibWithNibName:@"VEExcelTitleCell" bundle:nil] forCellReuseIdentifier:cellIdentifyer];
     [self addSubview:_leftTableView];
     _rightView = [[UIScrollView alloc] initWithFrame:CGRectMake(self.jk_width / 4, 0, (self.jk_width / 4 * 3) + kPadding, self.jk_height)];
-    _rightView.contentSize = CGSizeMake(self.jk_width / 4 * _contentColumn, self.jk_height);
+    //_rightView.contentSize = CGSizeMake(self.jk_width / 4 * _contentColumn, self.jk_height);
     _rightView.delegate = self;
     _rightView.bounces = NO;
     _rightView.showsHorizontalScrollIndicator = NO;
@@ -196,7 +196,7 @@ static CGFloat const kPadding = .5;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return [self.delegate excelViewWithRow] - 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -210,7 +210,7 @@ static CGFloat const kPadding = .5;
     } else {
         VEExcelCell *cell = [tableView dequeueReusableCellWithIdentifier:rightCellIdentifyer];
         if (!cell) {
-            cell = [[VEExcelCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:rightCellIdentifyer count:self.contentColumn];
+            cell = [[VEExcelCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:rightCellIdentifyer count:self.contentColumn - 1];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
         for (int i = 0; i < cell.labels.count; i++) {
@@ -225,9 +225,9 @@ static CGFloat const kPadding = .5;
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     if (tableView == self.rightTableView) {
-        VEGridHeaderView *headerView = [[VEGridHeaderView alloc] initWithFrame:CGRectMake(0, 0, tableView.jk_width, 20) withColumn:self.contentColumn];
+        VEGridHeaderView *headerView = [[VEGridHeaderView alloc] initWithFrame:CGRectMake(0, 0, tableView.jk_width, 20) withColumn:self.contentColumn - 1];
         
-        for (int i = 0; i < self.self.contentColumn; i++) {
+        for (int i = 0; i < self.self.contentColumn - 1; i++) {
             headerView.labels[i].backgroundColor = [self.dataSource contentBackgrountColorWithRow:0 column:i + 1];
             headerView.labels[i].text = [self.delegate textWithRow:0 column:i + 1];
             headerView.labels[i].textColor = [self.dataSource textColorWithRow:0 column:i + 1];
@@ -278,6 +278,37 @@ static CGFloat const kPadding = .5;
         self.leftTableView.contentOffset = CGPointMake(0, scrollView.contentOffset.y);
     }
 }
+
+- (void)setDelegate:(id<VEExcelTableViewDelegate>)delegate {
+    _delegate = delegate;
+    _contentColumn = [delegate excelViewWithColumn];
+    [self setupSubviews];
+    [self commonInit];
+}
+
+- (void)commonInit {
+    [_leftTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.mas_top);
+        make.left.equalTo(self.mas_left);
+        make.width.equalTo(self.mas_width).multipliedBy(0.25);
+        make.bottom.equalTo(self.mas_bottom);
+    }];
+    
+    [_rightView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.mas_top);
+        make.left.equalTo(_leftTableView.mas_right);
+        make.right.equalTo(self.mas_right);
+        make.bottom.equalTo(self.mas_bottom);
+    }];
+    
+    [_rightTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(_rightView);
+        make.height.equalTo(_leftTableView.mas_height);
+        make.width.equalTo(_leftTableView.mas_width).multipliedBy(_contentColumn - 1);
+    }];
+}
+
+
 
 /*
 // Only override drawRect: if you perform custom drawing.

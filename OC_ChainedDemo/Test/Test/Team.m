@@ -11,10 +11,8 @@
 
 @implementation Team
 
-+ (Team *)create {
-    Team *team = [Team new];
-    team.students = [NSMutableArray array];
-    return team;
+- (NSInteger)count {
+    return _count;
 }
 
 - (Team *(^)(Student *))addStu {
@@ -24,12 +22,5 @@
     };
 }
 
-- (Student *(^)(NSString *))add {
-    return ^(NSString *name) {
-        Student *stu = [Student new];
-        stu.name = name;
-        return stu;
-    };
-}
 
 @end

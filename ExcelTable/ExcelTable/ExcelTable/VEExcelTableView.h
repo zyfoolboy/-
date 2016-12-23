@@ -12,6 +12,8 @@
 
 @protocol VEExcelTableViewDelegate <NSObject>
 @required
+- (NSInteger)excelViewWithColumn;
+- (NSInteger)excelViewWithRow;
 - (NSString *)textWithRow:(NSInteger)row column:(NSInteger)column;
 @optional
 @end
