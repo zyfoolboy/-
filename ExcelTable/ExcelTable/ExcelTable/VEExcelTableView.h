@@ -49,10 +49,10 @@
 
 @end
 
-@interface VEExcelTableView : UIView
+@interface VEExcelTableView : UIScrollView
 
 @property (nonatomic, weak) id<VEExcelTableViewDataSource> dataSource;
-@property (nonatomic, weak) id<VEExcelTableViewDelegate> delegate;
+@property (nonatomic, weak) id<VEExcelTableViewDelegate> vedelegate;
 
 - (instancetype)initWithFrame:(CGRect)frame withColumn:(NSInteger)column;
 

@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "VEExcelTableView.h"
+#import <MJRefresh/MJRefresh.h>
 
 #define Width [UIScreen mainScreen].bounds.size.width - 30
 #define Height [UIScreen mainScreen].bounds.size.height - 20
@@ -24,17 +25,29 @@
     [super viewDidLoad];
     
    // self.excelTableView = [[VEExcelTableView alloc] initWithFrame:CGRectMake(15, 20, Width, Height) withColumn:7];
-   self.excelTableView = [[VEExcelTableView alloc] init];
+    self.excelTableView = [[VEExcelTableView alloc] init];
     self.excelTableView.dataSource = self;
-    self.excelTableView.delegate = self;
+    self.excelTableView.vedelegate = self;
     [self.view addSubview:self.excelTableView];
     
     [self.excelTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view.mas_top).offset(20);
-        make.left.equalTo(self.view.mas_left).offset(15);
-        make.right.equalTo(self.view.mas_right).offset(-15);
-        make.bottom.equalTo(self.view.mas_bottom);
+         make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(20, 15, 0, 15));
+//        make.top.equalTo(self.view.mas_top).offset(20);
+//        make.left.equalTo(self.view.mas_left).offset(15);
+//        make.right.equalTo(self.view.mas_right).offset(-15);
+//        make.bottom.equalTo(self.view.mas_bottom);
     }];
+    
+    
+    self.excelTableView.mj_header = ({
+        MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            
+        }];
+        //header.lastUpdatedTimeLabel.hidden = YES;
+        //header.stateLabel.hidden = YES;
+        header;
+    });
+//    [self.excelTableView.mj_header beginRefreshing];
     
     // Do any additional setup after loading the view, typically from a nib.
 }
@@ -49,7 +62,7 @@
 }
 
 - (NSInteger)excelViewWithRow {
-    return 6;
+    return 50;
 }
 
 - (UIColor *)contentBackgrountColorWithRow:(NSInteger)row column:(NSInteger)column {

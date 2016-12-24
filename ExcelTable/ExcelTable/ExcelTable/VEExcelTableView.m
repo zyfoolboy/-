@@ -8,6 +8,7 @@
 
 #import "VEExcelTableView.h"
 #import "VEExcelTitleCell.h"
+#import <MJRefresh/MJRefresh.h>
 
 static NSString * const cellIdentifyer = @"Cell";
 static NSString * const rightCellIdentifyer = @"rightCell";
@@ -166,7 +167,7 @@ static CGFloat const kPadding = .5;
     _leftTableView.tableFooterView = [UIView new];
     _leftTableView.delegate = self;
     _leftTableView.dataSource = self;
-    _leftTableView.bounces = NO;
+    //_leftTableView.bounces = NO;
     _leftTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [_leftTableView setSeparatorInset:UIEdgeInsetsZero];
     [_leftTableView setLayoutMargins:UIEdgeInsetsZero];
@@ -175,7 +176,7 @@ static CGFloat const kPadding = .5;
     _rightView = [[UIScrollView alloc] initWithFrame:CGRectMake(self.jk_width / 4, 0, (self.jk_width / 4 * 3) + kPadding, self.jk_height)];
     //_rightView.contentSize = CGSizeMake(self.jk_width / 4 * _contentColumn, self.jk_height);
     _rightView.delegate = self;
-    _rightView.bounces = NO;
+    //_rightView.bounces = NO;
     _rightView.showsHorizontalScrollIndicator = NO;
     _rightView.showsVerticalScrollIndicator = NO;
     [self addSubview:_rightView];
@@ -183,7 +184,7 @@ static CGFloat const kPadding = .5;
     _rightTableView.tableFooterView = [UIView new];
     _rightTableView.delegate = self;
     _rightTableView.dataSource = self;
-    _rightTableView.bounces = NO;
+    //_rightTableView.bounces = NO;
     [_rightTableView setSeparatorInset:UIEdgeInsetsZero];
     [_rightTableView setLayoutMargins:UIEdgeInsetsZero];
     [_rightView addSubview:_rightTableView];
@@ -196,7 +197,7 @@ static CGFloat const kPadding = .5;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.delegate excelViewWithRow] - 1;
+    return [self.vedelegate excelViewWithRow] - 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -204,7 +205,7 @@ static CGFloat const kPadding = .5;
         VEExcelTitleCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifyer forIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.titleLabel.backgroundColor = [self.dataSource contentBackgrountColorWithRow:indexPath.row + 1 column:0];
-        cell.titleLabel.text = [self.delegate textWithRow:indexPath.row + 1 column:0];
+        cell.titleLabel.text = [self.vedelegate textWithRow:indexPath.row + 1 column:0];
         cell.titleLabel.textColor = [self.dataSource textColorWithRow:indexPath.row + 1 column:0];
         return cell;
     } else {
@@ -215,7 +216,7 @@ static CGFloat const kPadding = .5;
         }
         for (int i = 0; i < cell.labels.count; i++) {
             cell.labels[i].backgroundColor = [self.dataSource contentBackgrountColorWithRow:indexPath.row + 1 column:i + 1];
-            cell.labels[i].text = [self.delegate textWithRow:indexPath.row + 1 column:i + 1];
+            cell.labels[i].text = [self.vedelegate textWithRow:indexPath.row + 1 column:i + 1];
             cell.labels[i].textColor = [self.dataSource textColorWithRow:indexPath.row + 1 column:i + 1];
         }
         
@@ -229,7 +230,7 @@ static CGFloat const kPadding = .5;
         
         for (int i = 0; i < self.self.contentColumn - 1; i++) {
             headerView.labels[i].backgroundColor = [self.dataSource contentBackgrountColorWithRow:0 column:i + 1];
-            headerView.labels[i].text = [self.delegate textWithRow:0 column:i + 1];
+            headerView.labels[i].text = [self.vedelegate textWithRow:0 column:i + 1];
             headerView.labels[i].textColor = [self.dataSource textColorWithRow:0 column:i + 1];
         }
         
@@ -241,7 +242,7 @@ static CGFloat const kPadding = .5;
         label.backgroundColor = [self.dataSource contentBackgrountColorWithRow:0 column:0];
         label.textColor = [self.dataSource textColorWithRow:0 column:0];
         label.font = [UIFont systemFontOfSize:13];
-        label.text = [self.delegate textWithRow:0 column:0];
+        label.text = [self.vedelegate textWithRow:0 column:0];
         label.textAlignment = NSTextAlignmentCenter;
         [view addSubview:label];
         [label mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -272,33 +273,44 @@ static CGFloat const kPadding = .5;
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    NSLog(@"%@", NSStringFromCGPoint(scrollView.contentOffset));
     if (scrollView == self.leftTableView) {
         self.rightTableView.contentOffset = scrollView.contentOffset;
     } else {
         self.leftTableView.contentOffset = CGPointMake(0, scrollView.contentOffset.y);
     }
+    if (scrollView.contentOffset.y < 0) {
+        self.contentOffset = CGPointMake(0, scrollView.contentOffset.y);
+    }
+    if (scrollView.contentOffset.y < -20) {
+        [self.mj_header beginRefreshing];
+    }
 }
 
-- (void)setDelegate:(id<VEExcelTableViewDelegate>)delegate {
-    _delegate = delegate;
-    _contentColumn = [delegate excelViewWithColumn];
+- (void)setVedelegate:(id<VEExcelTableViewDelegate>)vedelegate {
+    _vedelegate = vedelegate;
+    _contentColumn = [vedelegate excelViewWithColumn];
     [self setupSubviews];
     [self commonInit];
 }
+
 
 - (void)commonInit {
     [_leftTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.mas_top);
         make.left.equalTo(self.mas_left);
         make.width.equalTo(self.mas_width).multipliedBy(0.25);
-        make.bottom.equalTo(self.mas_bottom);
+        make.height.mas_equalTo(@200);
+        //make.bottom.equalTo(self.mas_bottom);
     }];
     
     [_rightView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.mas_top);
         make.left.equalTo(_leftTableView.mas_right);
-        make.right.equalTo(self.mas_right);
-        make.bottom.equalTo(self.mas_bottom);
+        //make.right.equalTo(self.mas_right);
+        make.width.equalTo(self.mas_width).multipliedBy(0.75);
+        make.height.mas_equalTo(@200);
+        //make.bottom.equalTo(self.mas_bottom);
     }];
     
     [_rightTableView mas_makeConstraints:^(MASConstraintMaker *make) {

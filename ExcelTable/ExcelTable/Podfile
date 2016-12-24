@@ -8,6 +8,7 @@ target 'ExcelTable' do
   # Pods for ExcelTable
 	pod 'Masonry'	
 	pod 'JKCategories'
+	pod 'MJRefresh'
   target 'ExcelTableTests' do
     inherit! :search_paths
     # Pods for testing

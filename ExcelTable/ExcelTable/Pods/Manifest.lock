@@ -1,15 +1,18 @@
 PODS:
   - JKCategories (1.4)
   - Masonry (1.0.1)
+  - MJRefresh (3.1.12)
 
 DEPENDENCIES:
   - JKCategories
   - Masonry
+  - MJRefresh
 
 SPEC CHECKSUMS:
   JKCategories: 7575c5e39a54e664c44969ee2fab36d75a9c1d17
   Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
 
-PODFILE CHECKSUM: 5d6b7d3a6e940b37599e57eaa36c0d3a2cb72751
+PODFILE CHECKSUM: 461326b01045857ebf5c441a935162fd7a95527e
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.1
