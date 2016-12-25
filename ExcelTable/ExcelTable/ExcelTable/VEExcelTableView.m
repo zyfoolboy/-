@@ -280,13 +280,22 @@ static CGFloat const kPadding = .5;
         self.leftTableView.contentOffset = CGPointMake(0, scrollView.contentOffset.y);
     }
     if (scrollView.contentOffset.y < 0) {
-        self.contentOffset = CGPointMake(0, scrollView.contentOffset.y);
-        self.isDragging = YES;
+        self.leftTableView.scrollEnabled = NO;
+        self.rightTableView.scrollEnabled = NO;
+        //self.contentOffset = CGPointMake(0, scrollView.contentOffset.y);
+        //self.isDragging = YES;
     }
 }
 
+//- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
+//    if (self.leftTableView.contentOffset.y < 0) {
+//        return YES;
+//    }
+//    return NO;
+//}
+
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    self.isDragging = NO;
+    //self.isDragging = NO;
     NSLog(@"NO");
 }
 

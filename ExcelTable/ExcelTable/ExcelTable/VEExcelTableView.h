@@ -53,7 +53,7 @@
 
 @property (nonatomic, weak) id<VEExcelTableViewDataSource> dataSource;
 @property (nonatomic, weak) id<VEExcelTableViewDelegate> vedelegate;
-@property(nonatomic, assign) BOOL isDragging;
+//@property(nonatomic, assign) BOOL isDragging;
 
 - (instancetype)initWithFrame:(CGRect)frame withColumn:(NSInteger)column;
 
