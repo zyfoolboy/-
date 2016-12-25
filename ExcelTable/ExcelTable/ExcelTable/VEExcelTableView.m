@@ -188,6 +188,8 @@ static CGFloat const kPadding = .5;
     [_rightTableView setSeparatorInset:UIEdgeInsetsZero];
     [_rightTableView setLayoutMargins:UIEdgeInsetsZero];
     [_rightView addSubview:_rightTableView];
+    _rightTableView.scrollEnabled = NO;
+    _leftTableView.scrollEnabled = NO;
 }
 
 #pragma mark - tableviewdatasource
@@ -280,8 +282,8 @@ static CGFloat const kPadding = .5;
         self.leftTableView.contentOffset = CGPointMake(0, scrollView.contentOffset.y);
     }
     if (scrollView.contentOffset.y < 0) {
-        self.leftTableView.scrollEnabled = NO;
-        self.rightTableView.scrollEnabled = NO;
+        //self.leftTableView.scrollEnabled = NO;
+        //self.rightTableView.scrollEnabled = NO;
         //self.contentOffset = CGPointMake(0, scrollView.contentOffset.y);
         //self.isDragging = YES;
     }
