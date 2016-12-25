@@ -281,10 +281,14 @@ static CGFloat const kPadding = .5;
     }
     if (scrollView.contentOffset.y < 0) {
         self.contentOffset = CGPointMake(0, scrollView.contentOffset.y);
+        self.isDragging = scrollView.isDragging;
+        NSLog(@"YES");
     }
-    if (scrollView.contentOffset.y < -20) {
-        [self.mj_header beginRefreshing];
-    }
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    self.isDragging = scrollView.isDragging;
+    NSLog(@"NO");
 }
 
 - (void)setVedelegate:(id<VEExcelTableViewDelegate>)vedelegate {
