@@ -167,7 +167,7 @@ static CGFloat const kPadding = .5;
     _leftTableView.tableFooterView = [UIView new];
     _leftTableView.delegate = self;
     _leftTableView.dataSource = self;
-    //_leftTableView.bounces = NO;
+//    _leftTableView.bounces = NO;
     _leftTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [_leftTableView setSeparatorInset:UIEdgeInsetsZero];
     [_leftTableView setLayoutMargins:UIEdgeInsetsZero];
@@ -176,7 +176,7 @@ static CGFloat const kPadding = .5;
     _rightView = [[UIScrollView alloc] initWithFrame:CGRectMake(self.jk_width / 4, 0, (self.jk_width / 4 * 3) + kPadding, self.jk_height)];
     //_rightView.contentSize = CGSizeMake(self.jk_width / 4 * _contentColumn, self.jk_height);
     _rightView.delegate = self;
-    //_rightView.bounces = NO;
+//    _rightView.bounces = NO;
     _rightView.showsHorizontalScrollIndicator = NO;
     _rightView.showsVerticalScrollIndicator = NO;
     [self addSubview:_rightView];
@@ -184,7 +184,7 @@ static CGFloat const kPadding = .5;
     _rightTableView.tableFooterView = [UIView new];
     _rightTableView.delegate = self;
     _rightTableView.dataSource = self;
-    //_rightTableView.bounces = NO;
+//    _rightTableView.bounces = NO;
     [_rightTableView setSeparatorInset:UIEdgeInsetsZero];
     [_rightTableView setLayoutMargins:UIEdgeInsetsZero];
     [_rightView addSubview:_rightTableView];
@@ -281,13 +281,12 @@ static CGFloat const kPadding = .5;
     }
     if (scrollView.contentOffset.y < 0) {
         self.contentOffset = CGPointMake(0, scrollView.contentOffset.y);
-        self.isDragging = scrollView.isDragging;
-        NSLog(@"YES");
+        self.isDragging = YES;
     }
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    self.isDragging = scrollView.isDragging;
+    self.isDragging = NO;
     NSLog(@"NO");
 }
 
