@@ -25,10 +25,24 @@
     
     FxQuery *query = FxQuery.create(YES, BASIC).in(@"1" ,@"2", @"3", nil);
     
-    Team *t = [Team create];
-    t.addStu([Student new]).add(@"zhangsan");
+    Team *t = [Team new];
+    t.students = [NSMutableArray array];
+    Student *stu = [Student new];
+    stu.name = @"abc";
+    t.addStu(stu);
     
-    t.add(@"zhangsan");
+    double (^distanceFromRateAndTime)(double rate, double time);
+    
+    // Create and assign the block
+    distanceFromRateAndTime = ^double(double rate, double time) {
+        return rate * time;
+    };
+    // Call the block
+//    distanceFromRateAndTime(35, 1.5);
+    
+    NSLog(@"A car driving 35 mph will travel "
+          @"%.2f miles in 1.5 hours.", distanceFromRateAndTime(35, 1.5));
+
     // Do any additional setup after loading the view, typically from a nib.
 }
 
