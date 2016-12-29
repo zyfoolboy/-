@@ -25,10 +25,7 @@
     
     FxQuery *query = FxQuery.create(YES, BASIC).in(@"1" ,@"2", @"3", nil);
     
-    Team *t = [Team create];
-    t.addStu([Student new]).add(@"zhangsan");
-    
-    t.add(@"zhangsan");
+  
     // Do any additional setup after loading the view, typically from a nib.
 }
 
