@@ -25,6 +25,15 @@
     
     FxQuery *query = FxQuery.create(YES, BASIC).in(@"1" ,@"2", @"3", nil);
     
+    FxQuery *params  =  FxQuery.create(YES, LIST)
+                            .pageNo(1)
+                        .pageSize(10)
+                    .and()
+                .lt(@"rechargeTime", @"2016-12-30 10:05:32")
+            .gt(@"rechargeTime", @"2016-08-10 10:05:32")
+        .eq(@"memberId", @1)
+    .orderBy(@"rechargeTime", @"DESC", nil);
+    
     Team *t = [Team new];
     t.students = [NSMutableArray array];
     Student *stu = [Student new];

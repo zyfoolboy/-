@@ -48,7 +48,7 @@ typedef NS_ENUM(NSUInteger, FxRange) {
 @property (nonatomic, copy) NSString *column;
 @property (nonatomic, copy) NSString *seq;
 
-
++ (FxOrderBy *(^)(NSString *, NSString *))create;
 
 @end
 
@@ -63,6 +63,15 @@ typedef NS_ENUM(NSUInteger, FxRange) {
 - (FxTerm *(^)(FxTerm *))addTerm;
 - (FxTerm *(^)(NSString *, id))eq;
 - (FxTerm *(^)(NSString *, id))ne;
+- (FxTerm *(^)(NSString *, id))le;
+- (FxTerm *(^)(NSString *, id))lt;
+- (FxTerm *(^)(NSString *, id))ge;
+- (FxTerm *(^)(NSString *, id))gt;
+- (FxTerm *(^)(NSString *, id , ...))in;
+- (FxTerm *(^)(NSString *, id))like;
+- (FxTerm *(^)(NSString *, id , ...))between;
+- (FxTerm *(^)())and;
+- (FxTerm *(^)())or;
 
 @end
 
@@ -76,7 +85,25 @@ typedef NS_ENUM(NSUInteger, FxRange) {
 @property (nonatomic, strong) FxPage *page;
 
 + (FxQuery *(^)(BOOL ,FxRange))create;
-- (FxQuery *(^)(NSString *,id))eq;
-- (FxQuery *(^)(NSString *, id ,...))in;
+- (FxQuery *(^)(NSString *, id))eq;
+- (FxQuery *(^)(NSString *, id))ne;
+- (FxQuery *(^)(NSString *, id))le;
+- (FxQuery *(^)(NSString *, id))lt;
+- (FxQuery *(^)(NSString *, id))ge;
+- (FxQuery *(^)(NSString *, id))gt;
+- (FxQuery *(^)(NSString *, id , ...))in;
+- (FxQuery *(^)(NSString *, id))like;
+- (FxQuery *(^)(NSString *, id , ...))between;
+- (FxQuery *(^)(NSString *, ...))orderBy;
+- (FxQuery *(^)(BOOL))withUnion;
+- (FxQuery *(^)(FxRange))withRange;
+- (FxQuery *(^)(NSInteger))pageNo;
+- (FxQuery *(^)(NSInteger))pageSize;
+- (FxQuery *(^)(FxTerm *))addSubTerm;
+- (FxQuery *(^)())and;
+- (FxQuery *(^)())or;
+- (FxQuery *(^)())selectBasic;
+- (FxQuery *(^)())selectList;
+- (FxQuery *(^)())selectMore;
 
 @end
