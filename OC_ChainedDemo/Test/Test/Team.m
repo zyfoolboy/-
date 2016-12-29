@@ -16,10 +16,13 @@
 }
 
 - (Team *(^)(Student *))addStu {
-    return ^(Student *stu) {
+   return ^(Student *stu) {
+        //Team *team = [Team new];
+//        self.students = [NSMutableArray array];
         [self.students addObject:stu];
         return self;
     };
+    //return _addStu;
 }
 
 

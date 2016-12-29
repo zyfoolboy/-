@@ -15,6 +15,8 @@
 @property (nonatomic, strong) NSMutableArray *students;
 
 @property (nonatomic, assign) NSInteger count;
-@property (nonatomic, strong) Team *(^addStu)(Student *stu);
+@property (nonatomic, copy) Team *(^addStu)(Student *stu);
+
+//- (Team *(^)(Student *))addStu;
 
 @end
