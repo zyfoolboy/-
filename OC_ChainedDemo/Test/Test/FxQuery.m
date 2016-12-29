@@ -40,10 +40,10 @@ FxQueryCst_Str(DESC)
 
 + (FxOrderBy *(^)(NSString *, NSString *))create {
     return ^(NSString *column, NSString *seq){
-        FxOrderBy *orderBy = [FxOrderBy new];
-        orderBy.column = column;
-        orderBy.seq = seq;
-        return orderBy;
+        FxOrderBy *fxOrderBy = [FxOrderBy new];
+        fxOrderBy.column = column;
+        fxOrderBy.seq = seq;
+        return fxOrderBy;
     };
 }
 
@@ -133,7 +133,7 @@ FxQueryCst_Str(DESC)
     };
 }
 
-- (FxTerm *(^)(NSString *, id , ...))in {
+- (FxTerm *(^)(NSString *, id , ...))fxIn {
     return ^(NSString *columnName, id value, ...) {
         FxTerm *subTerm = FxTerm.create(FxQueryCst.IN, columnName);
         va_list _arguments;
@@ -156,7 +156,7 @@ FxQueryCst_Str(DESC)
     };
 }
 
-- (FxTerm *(^)(NSString *, id , ...))between {
+- (FxTerm *(^)(NSString *, id , ...))fxBetween {
     return ^(NSString *columnName, id value, ...) {
         FxTerm *subTerm = FxTerm.create(FxQueryCst.BETWEEN, columnName);
         va_list _arguments;
@@ -265,7 +265,7 @@ FxQueryCst_Str(DESC)
     };
 }
 
-- (FxQuery *(^)(NSString *, id ,...))in {
+- (FxQuery *(^)(NSString *, id ,...))fxIn {
     return ^(NSString *columnName, id value, ...) {
         FxTerm *subTerm = FxTerm.create(FxQueryCst.IN, columnName);
         va_list _arguments;
@@ -288,7 +288,7 @@ FxQueryCst_Str(DESC)
     };
 }
 
-- (FxQuery *(^)(NSString *, id ,...))between {
+- (FxQuery *(^)(NSString *, id ,...))fxBetween {
     return ^(NSString *columnName, id value, ...) {
         FxTerm *subTerm = FxTerm.create(FxQueryCst.BETWEEN, columnName);
         va_list _arguments;
@@ -302,7 +302,7 @@ FxQueryCst_Str(DESC)
     };
 }
 
-- (FxQuery *(^)(NSString *,...))orderBy {
+- (FxQuery *(^)(NSString *,...))fxSort {
     return ^(NSString *columnName , ...) {
         NSMutableArray *params = [NSMutableArray array];
         va_list _arguments;

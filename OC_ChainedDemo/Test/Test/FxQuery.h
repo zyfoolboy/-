@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+#define orderBy(value, ...) fxSort(value, __VA_ARGS__, nil)
+#define in(value, ...) fxIn(value, __VA_ARGS__, nil)
+#define between(value, ...) fxBetween(value, __VA_ARGS__, nil)
+
 typedef NS_ENUM(NSUInteger, FxRange) {
     BASIC = 0,
     LIST,
@@ -67,9 +71,9 @@ typedef NS_ENUM(NSUInteger, FxRange) {
 - (FxTerm *(^)(NSString *, id))lt;
 - (FxTerm *(^)(NSString *, id))ge;
 - (FxTerm *(^)(NSString *, id))gt;
-- (FxTerm *(^)(NSString *, id , ...))in;
+- (FxTerm *(^)(NSString *, id , ...))fxIn;
 - (FxTerm *(^)(NSString *, id))like;
-- (FxTerm *(^)(NSString *, id , ...))between;
+- (FxTerm *(^)(NSString *, id , ...))fxBetween;
 - (FxTerm *(^)())and;
 - (FxTerm *(^)())or;
 
@@ -91,10 +95,10 @@ typedef NS_ENUM(NSUInteger, FxRange) {
 - (FxQuery *(^)(NSString *, id))lt;
 - (FxQuery *(^)(NSString *, id))ge;
 - (FxQuery *(^)(NSString *, id))gt;
-- (FxQuery *(^)(NSString *, id , ...))in;
+- (FxQuery *(^)(NSString *, id , ...))fxIn;
 - (FxQuery *(^)(NSString *, id))like;
-- (FxQuery *(^)(NSString *, id , ...))between;
-- (FxQuery *(^)(NSString *, ...))orderBy;
+- (FxQuery *(^)(NSString *, id , ...))fxBetween;
+- (FxQuery *(^)(NSString *, ...))fxSort;
 - (FxQuery *(^)(BOOL))withUnion;
 - (FxQuery *(^)(FxRange))withRange;
 - (FxQuery *(^)(NSInteger))pageNo;

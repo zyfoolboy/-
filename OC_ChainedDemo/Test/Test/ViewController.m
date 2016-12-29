@@ -23,7 +23,7 @@
 //    FxSort *sort1 = [FxSort new];
 //    FxParam *fx = FxParam.create.addPage(1, 2).addUnion(NO).addSort(sort, sort1, nil);
     
-    FxQuery *query = FxQuery.create(YES, BASIC).in(@"1" ,@"2", @"3", nil);
+    FxQuery *query = FxQuery.create(YES, BASIC).in(@"1" ,@"2", @"3");
     
     FxQuery *params  =  FxQuery.create(YES, LIST)
                             .pageNo(1)
@@ -32,7 +32,7 @@
                 .lt(@"rechargeTime", @"2016-12-30 10:05:32")
             .gt(@"rechargeTime", @"2016-08-10 10:05:32")
         .eq(@"memberId", @1)
-    .orderBy(@"rechargeTime", @"DESC", nil);
+    .orderBy(@"rechargeTime", @"DESC");
     
     Team *t = [Team new];
     t.students = [NSMutableArray array];
