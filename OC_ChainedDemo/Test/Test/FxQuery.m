@@ -8,6 +8,22 @@
 
 #import "FxQuery.h"
 
+static const FxQuery_Cst FxCst = {
+    .AND = @"AND",
+    .OR = @"OR",
+    .EQ = @"EQ",
+    .NE = @"NE",
+    .GE = @"GE",
+    .LE = @"LE",
+    .GT = @"GT",
+    .LT = @"LT",
+    .IN = @"IN",
+    .LIKE = @"LIKE",
+    .BETWEEN = @"BETWEEN",
+    .ASC = @"ASC",
+    .DESC = @"DESC"
+};
+
 #define FxQueryCst_Str(_name) \
 + (NSString *)_name { \
 return @#_name; \
@@ -146,6 +162,7 @@ FxQueryCst_Str(DESC)
         return self;
     };
 }
+
 
 - (FxTerm *(^)(NSString *, id))like {
     return ^(NSString *columnName, id value) {

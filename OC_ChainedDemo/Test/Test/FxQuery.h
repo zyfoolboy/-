@@ -19,6 +19,22 @@ typedef NS_ENUM(NSUInteger, FxRange) {
     HIDDEN
 };
 
+typedef struct FxQuery_Cst {
+    __unsafe_unretained NSString *AND;
+    __unsafe_unretained NSString *OR;
+    __unsafe_unretained NSString *EQ;
+    __unsafe_unretained NSString *NE;
+    __unsafe_unretained NSString *GE;
+    __unsafe_unretained NSString *LE;
+    __unsafe_unretained NSString *GT;
+    __unsafe_unretained NSString *LT;
+    __unsafe_unretained NSString *IN;
+    __unsafe_unretained NSString *LIKE;
+    __unsafe_unretained NSString *BETWEEN;
+    __unsafe_unretained NSString *ASC;
+    __unsafe_unretained NSString *DESC;
+} FxQuery_Cst;
+
 @interface FxQueryCst : NSObject
 
 + (NSString *)AND;
