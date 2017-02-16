@@ -2,31 +2,23 @@
 //  FxQuery.m
 //  Test
 //
-//  Created by 林盼盼 on 2016/12/21.
-//  Copyright © 2016年 林盼盼. All rights reserved.
+//  Created by ZYong on 2016/12/21.
+//  Copyright © 2016年 ZYong. All rights reserved.
 //
 
 #import "FxQuery.h"
 
-static const FxQuery_Cst FxCst = {
-    .AND = @"AND",
-    .OR = @"OR",
-    .EQ = @"EQ",
-    .NE = @"NE",
-    .GE = @"GE",
-    .LE = @"LE",
-    .GT = @"GT",
-    .LT = @"LT",
-    .IN = @"IN",
-    .LIKE = @"LIKE",
-    .BETWEEN = @"BETWEEN",
-    .ASC = @"ASC",
-    .DESC = @"DESC"
-};
-
 #define FxQueryCst_Str(_name) \
 + (NSString *)_name { \
 return @#_name; \
+}
+
+#define FxFieldType(_type) \
+- (FxQuery *(^)(NSString *))_type { \
+return ^(NSString *column) {\
+[self.fields addObject:[NSString stringWithFormat:@"_type:%@", column]]; \
+return self; \
+}; \
 }
 
 @implementation FxQueryCst
@@ -67,6 +59,9 @@ FxQueryCst_Str(DESC)
 
 @implementation FxTerm
 
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    return @{@"subTerms" : [FxTerm class]};
+}
 
 - (instancetype)init {
     self = [super init];
@@ -163,7 +158,6 @@ FxQueryCst_Str(DESC)
     };
 }
 
-
 - (FxTerm *(^)(NSString *, id))like {
     return ^(NSString *columnName, id value) {
         FxTerm *subTerm = FxTerm.create(FxQueryCst.LIKE, columnName);
@@ -206,13 +200,23 @@ FxQueryCst_Str(DESC)
 
 @implementation FxQuery
 
++ (NSDictionary *)modelCustomPropertyMapper {
+    return @{@"unio" : @"union"};
+}
+
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    return @{@"sort" : [FxOrderBy class]};
+}
+
 - (instancetype)init {
     self = [super init];
     if (self) {
         _range = LIST;
         _where = [FxTerm new];
         _sort = [NSMutableArray array];
+        _groups = [NSMutableArray array];
         _page = [FxPage new];
+        _fields = [NSMutableArray array];
     }
     return self;
 }
@@ -227,6 +231,39 @@ FxQueryCst_Str(DESC)
         return query;
     };
 }
+
+- (FxQuery *(^)(NSString *, ...))fxFields {
+    return ^(NSString *columnName , ...) {
+        va_list _arguments;
+        va_start(_arguments, columnName);
+        for (id key = columnName; key != nil; key = (__bridge NSString *)va_arg(_arguments, void *)) {
+            [self.fields addObject:key];
+        }
+        va_end(_arguments);
+        
+        return self;
+    };
+}
+
+- (FxQuery *(^)(NSString *, ...))fxGroups {
+    return ^(NSString *column , ...) {
+        va_list _arguments;
+        va_start(_arguments, column);
+        for (id key = column; key != nil; key = (__bridge NSString *)va_arg(_arguments, void *)) {
+            [self.groups addObject:key];
+        }
+        va_end(_arguments);
+        
+        return self;
+    };
+}
+
+FxFieldType(max)
+FxFieldType(min)
+FxFieldType(count)
+FxFieldType(sum)
+FxFieldType(avg)
+FxFieldType(distinct)
 
 - (FxQuery *(^)(NSString *,id))eq {
     return ^(NSString *columnName, id value) {
@@ -406,5 +443,6 @@ FxQueryCst_Str(DESC)
         return self;
     };
 }
+
 
 @end

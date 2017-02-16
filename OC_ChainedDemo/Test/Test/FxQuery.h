@@ -2,8 +2,8 @@
 //  FxQuery.h
 //  Test
 //
-//  Created by 林盼盼 on 2016/12/21.
-//  Copyright © 2016年 林盼盼. All rights reserved.
+//  Created by ZYong on 2016/12/21.
+//  Copyright © 2016年 ZYong. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -11,29 +11,15 @@
 #define orderBy(value, ...) fxSort(value, __VA_ARGS__, nil)
 #define in(value, ...) fxIn(value, __VA_ARGS__, nil)
 #define between(value, ...) fxBetween(value, __VA_ARGS__, nil)
+#define fields(...) fxFields(__VA_ARGS__, nil)
+#define groups( ...) fxGroups(__VA_ARGS__, nil)
 
 typedef NS_ENUM(NSUInteger, FxRange) {
-    BASIC = 0,
+    BASIC = 1,
     LIST,
     MORE,
     HIDDEN
 };
-
-typedef struct FxQuery_Cst {
-    __unsafe_unretained NSString *AND;
-    __unsafe_unretained NSString *OR;
-    __unsafe_unretained NSString *EQ;
-    __unsafe_unretained NSString *NE;
-    __unsafe_unretained NSString *GE;
-    __unsafe_unretained NSString *LE;
-    __unsafe_unretained NSString *GT;
-    __unsafe_unretained NSString *LT;
-    __unsafe_unretained NSString *IN;
-    __unsafe_unretained NSString *LIKE;
-    __unsafe_unretained NSString *BETWEEN;
-    __unsafe_unretained NSString *ASC;
-    __unsafe_unretained NSString *DESC;
-} FxQuery_Cst;
 
 @interface FxQueryCst : NSObject
 
@@ -99,12 +85,24 @@ typedef struct FxQuery_Cst {
 @interface FxQuery : NSObject
 
 @property (nonatomic, assign) BOOL unio;
+@property (nonatomic, assign) BOOL ignoreUnionField;
+@property (nonatomic, assign) BOOL inception;
+@property (nonatomic, strong) NSMutableArray<NSString *> *fields;
+@property (nonatomic, strong) NSMutableArray<NSString *> *groups;
 @property (nonatomic, assign) FxRange range;
 @property (nonatomic, strong) FxTerm *where;
 @property (nonatomic, strong) NSMutableArray<FxOrderBy *> *sort;
 @property (nonatomic, strong) FxPage *page;
 
 + (FxQuery *(^)(BOOL ,FxRange))create;
+- (FxQuery *(^)(NSString *, ...))fxFields;
+- (FxQuery *(^)(NSString *, ...))fxGroups;
+- (FxQuery *(^)(NSString *))max;
+- (FxQuery *(^)(NSString *))min;
+- (FxQuery *(^)(NSString *))count;
+- (FxQuery *(^)(NSString *))sum;
+- (FxQuery *(^)(NSString *))avg;
+- (FxQuery *(^)(NSString *))distinct;
 - (FxQuery *(^)(NSString *, id))eq;
 - (FxQuery *(^)(NSString *, id))ne;
 - (FxQuery *(^)(NSString *, id))le;
