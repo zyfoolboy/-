@@ -19,6 +19,22 @@ int main(int argc, const char * argv[]) {
 
 
 /**
+ Given an integer array of size n, find all elements that appear more than ⌊ n/3 ⌋ times. The algorithm should run in linear time and in O(1) space.
+ @param nums array
+ @param numsSize array size
+ @param returnSize Return an array of size *returnSize.
+ @return Return an array of size *returnSize.
+ Note: The returned array must be malloced, assume caller calls free().
+ */
+int* majorityElementII(int* nums, int numsSize, int* returnSize) {
+    
+    
+    
+    return returnSize;
+}
+
+
+/**
  Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times.
  
  You may assume that the array is non-empty and the majority element always exist in the array.
