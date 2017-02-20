@@ -12,13 +12,21 @@ int main(int argc, const char * argv[]) {
     // insert code here...
     printf("Hello, World!\n");
     
-    int a[]={1,2,2,2,3,3,3};
-    int n=sizeof(a)/sizeof(a[0]);
+    int a[] = {1,2,2,2,3,3,3};
+    int n = sizeof(a) / sizeof(a[0]);
     int result = findThree(a,n);
     
     return 0;
 }
 
+
+
+/**
+ 数组A中，除了某一个数字x之外，其他数字都出现了三次，而x出现了一次。请给出最快的方法，找到x。
+ @param nums 数组
+ @param numsSize 数组大小
+ @return x
+ */
 int findThree(int *nums, int numsSize) {
     int m[32];
     int result = 0;
