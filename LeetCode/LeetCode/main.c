@@ -12,9 +12,35 @@ int main(int argc, const char * argv[]) {
     // insert code here...
     printf("Hello, World!\n");
     
-    
+    int a[]={1,2,2,2,3,3,3};
+    int n=sizeof(a)/sizeof(a[0]);
+    int result = findThree(a,n);
     
     return 0;
+}
+
+int findThree(int *nums, int numsSize) {
+    int m[32];
+    int result = 0;
+    for (int i = 0; i < 32; i++) {
+        m[i] = 0;
+    }
+    
+    for (int i = 0; i < 32; i++) {
+        for (int j = 0; j < numsSize; j++) {
+            int bit = nums[j] & 1;
+            m[i] += bit;
+            nums[j] >>= 1;
+        }
+    }
+    
+    for (int i = 0; i < 32; i++) {
+        if (m[i] % 3 != 0) {
+            result |= (1 << (i & 0x1F));
+        }
+    }
+    
+    return result;
 }
 
 
