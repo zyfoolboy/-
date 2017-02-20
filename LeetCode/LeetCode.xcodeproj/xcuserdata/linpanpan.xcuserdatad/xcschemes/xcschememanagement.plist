@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>SendMessage.xcscheme</key>
+		<key>LeetCode.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,17 +12,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>E730CA5F1E5585FB0043D030</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E730CA781E5585FB0043D030</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E730CA831E5585FB0043D030</key>
+		<key>6DA6FCB91E586D9800AB5A69</key>
 		<dict>
 			<key>primary</key>
 			<true/>
