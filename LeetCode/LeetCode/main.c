@@ -2,8 +2,8 @@
 //  main.c
 //  LeetCode
 //
-//  Created by 林盼盼 on 2017/2/18.
-//  Copyright © 2017年 林盼盼. All rights reserved.
+//  Created by zyfoolboy on 2017/2/18.
+//  Copyright © 2017年 zyfoolboy. All rights reserved.
 //
 
 #include <stdio.h>
