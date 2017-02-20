@@ -12,7 +12,7 @@ int main(int argc, const char * argv[]) {
     // insert code here...
     printf("Hello, World!\n");
     
-    int a[] = {1,2,2,2,3,3,3};
+    int a[] = {1,1,1,2,2,2,3,3,3,5,5,5,8,8,8,10,9,9,9};
     int n = sizeof(a) / sizeof(a[0]);
     int result = findThree(a,n);
     
@@ -27,7 +27,7 @@ int main(int argc, const char * argv[]) {
  @param numsSize 数组大小
  @return x
  */
-int findThree(int *nums, int numsSize) {
+int findThree(int nums[], int numsSize) {
     int m[32];
     int result = 0;
     for (int i = 0; i < 32; i++) {
@@ -35,16 +35,17 @@ int findThree(int *nums, int numsSize) {
     }
     
     for (int i = 0; i < 32; i++) {
+        //统计 nums 数组中所有元素的二进制值的第 i 位，相加后存入 m[i] 中
         for (int j = 0; j < numsSize; j++) {
-            int bit = nums[j] & 1;
+            int bit = nums[j] & 1; //获得数组中第 j 个元素的二进制值的第 i 位的值
             m[i] += bit;
-            nums[j] >>= 1;
+            nums[j] >>= 1; //第 i 位取到之后砍掉，下一次用 nums[j] & 1 取到的就是 i + 1 位
         }
     }
     
     for (int i = 0; i < 32; i++) {
         if (m[i] % 3 != 0) {
-            result |= (1 << (i & 0x1F));
+            result |= (1 << i); 
         }
     }
     
