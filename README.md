@@ -23,3 +23,7 @@
 11.[在 iOS 中使用 MQTT 协议](https://github.com/zyfoolboy/MQTTDemo/blob/master/README.md)
 
 12.[给 AFNetworking 请求头添加 Authorization](https://github.com/zyfoolboy/problems-of-work/wiki/%E7%BB%99-AFNetworking-%E8%AF%B7%E6%B1%82%E5%A4%B4%E6%B7%BB%E5%8A%A0-Authorization)
+
+13[个人常用 github 库](https://github.com/zyfoolboy/problems-of-work/wiki/%E4%B8%AA%E4%BA%BA%E5%B8%B8%E7%94%A8-github-%E5%BA%93)
+
+15[iOS 沙盒路径动态变化](https://github.com/zyfoolboy/work-issues/wiki/iOS-8-%E4%B9%8B%E5%90%8E%E6%B2%99%E7%9B%92%E8%B7%AF%E5%BE%84%E5%8A%A8%E6%80%81%E5%8C%96)
