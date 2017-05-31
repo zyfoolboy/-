@@ -15,6 +15,7 @@
 		6D9247161EDF051900222B69 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D9247141EDF051900222B69 /* LaunchScreen.storyboard */; };
 		6D9247211EDF051A00222B69 /* RunLoopLoadImageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9247201EDF051A00222B69 /* RunLoopLoadImageTests.m */; };
 		6D92472C1EDF051A00222B69 /* RunLoopLoadImageUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D92472B1EDF051A00222B69 /* RunLoopLoadImageUITests.m */; };
+		6D92473A1EDF11FA00222B69 /* spaceship.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6D9247391EDF11FA00222B69 /* spaceship.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		6D9247271EDF051A00222B69 /* RunLoopLoadImageUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RunLoopLoadImageUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D92472B1EDF051A00222B69 /* RunLoopLoadImageUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RunLoopLoadImageUITests.m; sourceTree = "<group>"; };
 		6D92472D1EDF051A00222B69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6D9247391EDF11FA00222B69 /* spaceship.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spaceship.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				6D92470F1EDF051900222B69 /* Main.storyboard */,
 				6D9247121EDF051900222B69 /* Assets.xcassets */,
 				6D9247141EDF051900222B69 /* LaunchScreen.storyboard */,
+				6D9247391EDF11FA00222B69 /* spaceship.jpg */,
 				6D9247171EDF051900222B69 /* Info.plist */,
 				6D9247061EDF051900222B69 /* Supporting Files */,
 			);
@@ -246,6 +249,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D92473A1EDF11FA00222B69 /* spaceship.jpg in Resources */,
 				6D9247161EDF051900222B69 /* LaunchScreen.storyboard in Resources */,
 				6D9247131EDF051900222B69 /* Assets.xcassets in Resources */,
 				6D9247111EDF051900222B69 /* Main.storyboard in Resources */,
