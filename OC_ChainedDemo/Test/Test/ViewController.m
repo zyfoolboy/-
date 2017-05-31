@@ -52,6 +52,15 @@
     NSLog(@"A car driving 35 mph will travel "
           @"%.2f miles in 1.5 hours.", distanceFromRateAndTime(35, 1.5));
 
+    int dmy = 256;
+    int val = 10;
+    const char *fmt = "val = %d\n";
+    void (^blk)(void) = ^{printf(fmt, val);};
+    val = 2;
+    fmt = "These values were changed. val = %d\n";
+    
+    blk();
+    
     // Do any additional setup after loading the view, typically from a nib.
 }
 
