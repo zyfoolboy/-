@@ -27,3 +27,5 @@
 13[个人常用 github 库](https://github.com/zyfoolboy/problems-of-work/wiki/%E4%B8%AA%E4%BA%BA%E5%B8%B8%E7%94%A8-github-%E5%BA%93)
 
 15[iOS 沙盒路径动态变化](https://github.com/zyfoolboy/work-issues/wiki/iOS-8-%E4%B9%8B%E5%90%8E%E6%B2%99%E7%9B%92%E8%B7%AF%E5%BE%84%E5%8A%A8%E6%80%81%E5%8C%96)
+
+16[设置 UIButton title 换行](https://github.com/zyfoolboy/work-issues/wiki/UIButton-title-%E6%8D%A2%E8%A1%8C)
